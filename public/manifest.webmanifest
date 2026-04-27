@@ -1,0 +1,22 @@
+{
+  "name": "Cirugía Plástica Valverde",
+  "short_name": "Valverde",
+  "description": "Especialistas en cirugía plástica, reconstructiva y medicina estética en Lima, Perú.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8C3F5A",
+  "icons": [
+    {
+      "src": "assets/images/icono/logo-kv-1-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/icono/logo-kv-1-500x500.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    }
+  ]
+}

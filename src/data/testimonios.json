@@ -1,0 +1,37 @@
+[
+  {
+    "nombre": "María G.",
+    "procedimiento": "Rinoplastia",
+    "texto": "La Dra. Valverde es increíblemente profesional. Desde la primera consulta me sentí en confianza. El resultado de mi rinoplastia superó mis expectativas, completamente natural.",
+    "rating": 5,
+    "avatar": "MG"
+  },
+  {
+    "nombre": "Andrea P.",
+    "procedimiento": "Lipoescultura",
+    "texto": "Excelente experiencia. Todo el equipo es muy atento y profesional. Mi cuerpo quedó exactamente como lo soñaba. Sin duda la recomiendo al 100%.",
+    "rating": 5,
+    "avatar": "AP"
+  },
+  {
+    "nombre": "Carla M.",
+    "procedimiento": "Mamoplastia",
+    "texto": "Tuve el aumento de senos y los resultados son perfectos. La Dra. me explicó todo el proceso con detalle. Me siento mucho más segura de mí misma.",
+    "rating": 5,
+    "avatar": "CM"
+  },
+  {
+    "nombre": "Lucía R.",
+    "procedimiento": "Toxina Botulínica",
+    "texto": "Llevo 2 años yendo con la Dra. Valverde para el botox y siempre quedo feliz. El resultado es muy natural, nadie nota que me lo hice.",
+    "rating": 5,
+    "avatar": "LR"
+  },
+  {
+    "nombre": "Patricia V.",
+    "procedimiento": "Blefaroplastia",
+    "texto": "Tenía miedo de operarme los párpados pero la Dra. me dio toda la confianza. La recuperación fue más fácil de lo esperado y el resultado es rejuvenecedor.",
+    "rating": 5,
+    "avatar": "PV"
+  }
+]

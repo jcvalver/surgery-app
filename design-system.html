@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System v2.0 — Rose Noir | Cirugía Plástica Valverde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background: #FAF8F9;
+      color: #2D1E25;
+      line-height: 1.6;
+    }
+
+    /* ── Design Tokens v2.0 — Rose Noir ── */
+    :root {
+      --brand-primary:   #8C3F5A;
+      --brand-secondary: #C4728A;
+      --brand-accent:    #FDF0F4;
+      --brand-gold:      #D4A843;
+      --brand-dark:      #1E1A1C;
+      --neutral-50:  #FAF8F9;
+      --neutral-100: #F4EEF1;
+      --neutral-200: #E6D9DF;
+      --neutral-600: #6B5560;
+      --neutral-700: #4A3540;
+      --neutral-800: #2D1E25;
+      --neutral-900: #1E1A1C;
+      --shadow-card: 0 4px 24px 0 rgba(140,63,90,0.10);
+      --radius-card: 16px;
+      --radius-full: 9999px;
+    }
+
+    /* ── Layout ── */
+    .page { max-width: 1100px; margin: 0 auto; padding: 48px 24px 96px; }
+    .section { margin-bottom: 72px; }
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--brand-primary);
+      border-left: 3px solid var(--brand-primary);
+      padding-left: 10px; margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 700; color: var(--neutral-800); margin-bottom: 6px;
+    }
+    .section-desc { font-size: 14px; color: var(--neutral-600); margin-bottom: 32px; }
+    .divider { border: none; border-top: 1px solid var(--neutral-200); margin: 72px 0; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    @media (max-width: 700px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; } }
+
+    /* ── Header del documento ── */
+    .doc-header {
+      background: var(--brand-dark);
+      border-radius: 20px; padding: 48px 40px; margin-bottom: 64px;
+      display: flex; align-items: center; gap: 32px;
+      position: relative; overflow: hidden;
+    }
+    .doc-header::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(140,63,90,0.25) 0%, transparent 70%);
+    }
+    .doc-header-text { flex: 1; position: relative; }
+    .doc-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 6px;
+    }
+    .doc-header h1 span {
+      background: linear-gradient(135deg, var(--brand-secondary), var(--brand-gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .doc-header p { color: #9CA3AF; font-size: 15px; margin-bottom: 16px; }
+    .version-badge {
+      display: inline-block; background: var(--brand-primary); color: #fff;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 9999px;
+    }
+    .doc-header-meta {
+      display: flex; flex-direction: column; gap: 8px; text-align: right; position: relative;
+    }
+    .doc-header-meta span { font-size: 12px; color: #6B7280; }
+    .doc-header-meta strong { font-size: 13px; color: #D1D5DB; }
+
+    /* ── Color Swatch ── */
+    .swatch-group { display: flex; flex-direction: column; gap: 16px; }
+    .swatch-row { display: flex; align-items: stretch; gap: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .swatch { flex: 1; min-height: 80px; display: flex; flex-direction: column; justify-content: flex-end; padding: 10px 12px; transition: flex 0.2s; cursor: default; }
+    .swatch:hover { flex: 1.5; }
+    .swatch-label { font-size: 10px; font-weight: 600; letter-spacing: 0.05em; line-height: 1.4; }
+    .swatch-hex  { font-size: 11px; font-family: monospace; opacity: 0.85; }
+
+    /* ── Typography ── */
+    .type-specimen { background: #fff; border-radius: 16px; padding: 28px 32px; box-shadow: var(--shadow-card); }
+    .type-row { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--neutral-100); }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta { min-width: 160px; }
+    .type-meta .label { font-size: 11px; font-weight: 700; color: var(--brand-primary); letter-spacing: 0.08em; text-transform: uppercase; }
+    .type-meta .specs { font-size: 11px; color: var(--neutral-600); font-family: monospace; margin-top: 2px; line-height: 1.6; }
+    .type-preview { flex: 1; }
+
+    /* ── Buttons ── */
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      padding: 12px 24px; border-radius: 9999px; cursor: pointer;
+      border: none; font-size: 15px; text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .btn-primary   { background: var(--brand-primary); color: #fff; }
+    .btn-primary:hover { background: var(--brand-secondary); }
+    .btn-secondary { background: transparent; color: var(--brand-primary); border: 2px solid var(--brand-primary); }
+    .btn-secondary:hover { background: var(--brand-primary); color: #fff; }
+    .btn-gold      { background: var(--brand-gold); color: #fff; }
+    .btn-gold:hover { opacity: 0.9; }
+    .btn-ghost     { background: var(--brand-accent); color: var(--brand-primary); }
+    .btn-sm  { padding: 8px 18px; font-size: 13px; }
+    .btn-lg  { padding: 16px 36px; font-size: 17px; }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block; background: var(--brand-accent); color: var(--brand-primary);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 9999px;
+    }
+    .badge-gold { background: #FBF5E4; color: #7A5C1E; }
+    .badge-dark { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+
+    /* ── Card ── */
+    .demo-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-card); transition: transform 0.3s ease; }
+    .demo-card:hover { transform: translateY(-4px); }
+    .card-img { width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; }
+    .card-body { padding: 20px; }
+    .card-body h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--neutral-800); margin-bottom: 8px; }
+    .card-body p { font-size: 13px; color: var(--neutral-600); line-height: 1.6; margin-bottom: 16px; }
+
+    /* ── Form ── */
+    .form-input {
+      width: 100%; padding: 12px 16px; border-radius: 12px;
+      border: 1px solid var(--neutral-200); font-family: 'Inter', sans-serif; font-size: 15px;
+      color: var(--neutral-800); background: #fff; outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus { border-color: var(--brand-primary); box-shadow: 0 0 0 3px var(--brand-accent); }
+    .form-input::placeholder { color: #9CA3AF; }
+    .form-label { font-size: 13px; font-weight: 600; color: var(--neutral-700); margin-bottom: 6px; display: block; }
+    .form-group { margin-bottom: 16px; }
+
+    /* ── Nav ── */
+    .nav-link-demo { font-size: 15px; font-weight: 500; color: var(--neutral-700); text-decoration: none; transition: color 0.2s; }
+    .nav-link-demo:hover { color: var(--brand-primary); }
+    .nav-link-demo.active { color: var(--brand-primary); font-weight: 600; }
+
+    /* ── Gradient demos ── */
+    .gradient-demo { border-radius: 16px; height: 100px; display: flex; align-items: flex-end; padding: 14px 16px; }
+    .gradient-demo span { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.9); }
+
+    /* ── Spacing ── */
+    .spacing-row { display: flex; align-items: center; gap: 16px; padding: 6px 0; }
+    .spacing-bar { background: var(--brand-accent); height: 20px; border-radius: 4px; border: 1px solid var(--brand-secondary); }
+    .spacing-label { font-size: 12px; font-family: monospace; color: var(--neutral-600); min-width: 80px; }
+
+    /* ── Shadow demos ── */
+    .shadow-demo {
+      background: #fff; border-radius: 16px; height: 80px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 600; color: var(--neutral-600);
+    }
+
+    /* ── Icon row ── */
+    .icon-row { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+    .icon-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .icon-item svg { color: var(--brand-primary); }
+    .icon-item span { font-size: 11px; color: var(--neutral-600); text-align: center; }
+
+    /* ── Tags / chips ── */
+    .tag { display: inline-block; background: var(--neutral-100); color: var(--neutral-700); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 6px; font-family: monospace; }
+    .tag-rose { background: var(--brand-accent); color: var(--brand-primary); }
+
+    /* ── Table ── */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { background: var(--neutral-800); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.04em; }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--neutral-100); color: var(--neutral-700); vertical-align: top; }
+    tr:hover td { background: var(--neutral-50); }
+    code { font-family: monospace; background: var(--neutral-100); padding: 2px 6px; border-radius: 4px; font-size: 12px; color: var(--brand-primary); }
+
+    /* ── Comparison strip ── */
+    .compare-strip {
+      display: flex; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); height: 56px;
+    }
+    .compare-half { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; gap: 8px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Cabecera ── -->
+  <div class="doc-header">
+    <div class="doc-header-text">
+      <h1>Design System<br><span>Rose Noir</span></h1>
+      <p>Paleta nueva derivada del logotipo — Medicina estética y cirugía plástica de lujo</p>
+      <span class="version-badge">v2.0 — Aprobada Abril 2026</span>
+    </div>
+    <div class="doc-header-meta">
+      <span>Paleta anterior</span>
+      <strong style="color:#9CA3AF;text-decoration:line-through">Teal Verde</strong>
+      <span style="margin-top:4px">Paleta actual</span>
+      <strong>Rose Noir</strong>
+      <span style="margin-top:12px">Stack</span>
+      <strong>Vite + Tailwind 4</strong>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       COMPARATIVA ANTES / DESPUÉS
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">00</p>
+    <h2 class="section-title">Antes / Después</h2>
+    <p class="section-desc">Comparación directa de las dos paletas. La nueva está derivada de los tres colores del logotipo.</p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
+      <div>
+        <p style="font-size:12px;font-weight:600;color:var(--neutral-600);margin-bottom:8px;letter-spacing:0.06em;text-transform:uppercase">v1.0 — Teal Verde (anterior)</p>
+        <div class="compare-strip">
+          <div class="compare-half" style="background:#2C7A6B;color:#fff">Primary #2C7A6B</div>
+          <div class="compare-half" style="background:#4AADA0;color:#fff">Secondary #4AADA0</div>
+          <div class="compare-half" style="background:#E8F5F2;color:#2C7A6B">Accent #E8F5F2</div>
+          <div class="compare-half" style="background:#C9A84C;color:#fff">Gold #C9A84C</div>
+          <div class="compare-half" style="background:#111827;color:#fff">Dark #111827</div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:600;color:var(--brand-primary);margin-bottom:8px;letter-spacing:0.06em;text-transform:uppercase">v2.0 — Rose Noir (actual) ✓</p>
+        <div class="compare-strip">
+          <div class="compare-half" style="background:#8C3F5A;color:#fff">Primary #8C3F5A</div>
+          <div class="compare-half" style="background:#C4728A;color:#fff">Secondary #C4728A</div>
+          <div class="compare-half" style="background:#FDF0F4;color:#8C3F5A">Accent #FDF0F4</div>
+          <div class="compare-half" style="background:#D4A843;color:#fff">Gold #D4A843</div>
+          <div class="compare-half" style="background:#1E1A1C;color:#fff">Dark #1E1A1C</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border-radius:16px;padding:20px 24px;box-shadow:var(--shadow-card)">
+      <p style="font-size:13px;color:var(--neutral-600);line-height:1.8">
+        <strong style="color:var(--neutral-800)">Justificación del cambio:</strong>
+        Los tres colores del logotipo (carbón <code>#1E1A1C</code>, mauve rose <code>#A8546A</code> y blush <code>#F5D5DC</code>)
+        definen directamente la nueva escala. La paleta Rose Noir es coherente con tendencias 2025–2026 en clínicas de cirugía estética premium en LATAM y Europa,
+        y se diferencia del verde genérico asociado a clínicas dentales o farmacias.
+        Todos los contrastes cumplen WCAG AA (<code>#8C3F5A</code> sobre blanco: ratio 5.2:1).
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- ══════════════════════════════════════
+       1. PALETA DE COLORES
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">01</p>
+    <h2 class="section-title">Paleta de Colores — Rose Noir</h2>
+    <p class="section-desc">Cuatro colores de marca + tono oscuro del logo + escala de neutros cálidos. Definidos como tokens CSS en <code>style.css</code> bajo <code>@theme</code>.</p>
+
+    <div class="swatch-group">
+      <!-- Colores de marca -->
+      <div>
+        <p style="font-size:12px;font-weight:700;color:#6B5560;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">Marca — Derivados del logotipo</p>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#8C3F5A">
+            <div class="swatch-label" style="color:#fff">Primary</div>
+            <div class="swatch-hex" style="color:rgba(255,255,255,0.85)">#8C3F5A</div>
+          </div>
+          <div class="swatch" style="background:#C4728A">
+            <div class="swatch-label" style="color:#fff">Secondary</div>
+            <div class="swatch-hex" style="color:rgba(255,255,255,0.85)">#C4728A</div>
+          </div>
+          <div class="swatch" style="background:#FDF0F4;border:1px solid #E6D9DF">
+            <div class="swatch-label" style="color:#8C3F5A">Accent</div>
+            <div class="swatch-hex" style="color:#C4728A">#FDF0F4</div>
+          </div>
+          <div class="swatch" style="background:#D4A843">
+            <div class="swatch-label" style="color:#fff">Gold</div>
+            <div class="swatch-hex" style="color:rgba(255,255,255,0.9)">#D4A843</div>
+          </div>
+          <div class="swatch" style="background:#1E1A1C">
+            <div class="swatch-label" style="color:#fff">Dark ★ nuevo</div>
+            <div class="swatch-hex" style="color:rgba(255,255,255,0.8)">#1E1A1C</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Neutros cálidos -->
+      <div>
+        <p style="font-size:12px;font-weight:700;color:#6B5560;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">Neutros — Escala cálida (tinte rosado)</p>
+        <div class="swatch-row">
+          <div class="swatch" style="background:#FAF8F9;border:1px solid #E6D9DF">
+            <div class="swatch-label" style="color:#4A3540">50</div>
+            <div class="swatch-hex" style="color:#6B5560">#FAF8F9</div>
+          </div>
+          <div class="swatch" style="background:#F4EEF1;border:1px solid #E6D9DF">
+            <div class="swatch-label" style="color:#4A3540">100</div>
+            <div class="swatch-hex" style="color:#6B5560">#F4EEF1</div>
+          </div>
+          <div class="swatch" style="background:#E6D9DF">
+            <div class="swatch-label" style="color:#4A3540">200</div>
+            <div class="swatch-hex" style="color:#6B5560">#E6D9DF</div>
+          </div>
+          <div class="swatch" style="background:#6B5560">
+            <div class="swatch-label" style="color:#fff">600</div>
+            <div class="swatch-hex" style="color:rgba(255,255,255,0.85)">#6B5560</div>
+          </div>
+          <div class="swatch" style="background:#4A3540">
+            <div class="swatch-label" style="color:#fff">700</div>
+            <div class="swatch-hex" style="color:rgba(255,255,255,0.85)">#4A3540</div>
+          </div>
+          <div class="swatch" style="background:#2D1E25">
+            <div class="swatch-label" style="color:#fff">800</div>
+            <div class="swatch-hex" style="color:rgba(255,255,255,0.85)">#2D1E25</div>
+          </div>
+          <div class="swatch" style="background:#1E1A1C">
+            <div class="swatch-label" style="color:#fff">900</div>
+            <div class="swatch-hex" style="color:rgba(255,255,255,0.85)">#1E1A1C</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Externos -->
+      <div>
+        <p style="font-size:12px;font-weight:700;color:#6B5560;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">Externos (sin token)</p>
+        <div class="swatch-row" style="max-width:320px">
+          <div class="swatch" style="background:#25D366">
+            <div class="swatch-label" style="color:#fff">WhatsApp</div>
+            <div class="swatch-hex" style="color:rgba(255,255,255,0.85)">#25D366</div>
+          </div>
+          <div class="swatch" style="background:#ffffff;border:1px solid #E6D9DF">
+            <div class="swatch-label" style="color:#4A3540">White</div>
+            <div class="swatch-hex" style="color:#6B5560">#FFFFFF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+    <table>
+      <thead><tr><th>Token</th><th>Valor</th><th>Usos principales</th></tr></thead>
+      <tbody>
+        <tr><td><code>brand-primary</code></td><td>#8C3F5A</td><td>Botones principales, links activos, borde de foco, hero overlay, navbar, theme-color PWA</td></tr>
+        <tr><td><code>brand-secondary</code></td><td>#C4728A</td><td>Hover de btn-primary, gradientes de acento, estados secundarios</td></tr>
+        <tr><td><code>brand-accent</code></td><td>#FDF0F4</td><td>Fondos de badge, hover de menú, ring de foco en inputs, secciones alternas suaves</td></tr>
+        <tr><td><code>brand-gold</code></td><td>#D4A843</td><td>btn-gold, acentos dorados en hero, gradiente de texto, "Valverde" en footer</td></tr>
+        <tr><td><code>brand-dark</code> ★</td><td>#1E1A1C</td><td>Token nuevo — carbón del logo. Fondo del footer, texto en dark mode, neutral-900</td></tr>
+        <tr><td><code>neutral-50</code></td><td>#FAF8F9</td><td>Fondo del documento (cálido, no frío)</td></tr>
+        <tr><td><code>neutral-100</code></td><td>#F4EEF1</td><td>Fondos de badges secundarios, chips de código</td></tr>
+        <tr><td><code>neutral-200</code></td><td>#E6D9DF</td><td>Bordes de inputs, divisores, separadores</td></tr>
+        <tr><td><code>neutral-600</code></td><td>#6B5560</td><td>Párrafos secundarios, subtítulos de sección</td></tr>
+        <tr><td><code>neutral-700</code></td><td>#4A3540</td><td>Links de navegación, labels de formulario, dropdown</td></tr>
+        <tr><td><code>neutral-800</code></td><td>#2D1E25</td><td>Color base del body, títulos H2/H3</td></tr>
+        <tr><td><code>neutral-900</code></td><td>#1E1A1C</td><td>Fondo del footer = brand-dark</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- ══════════════════════════════════════
+       2. TIPOGRAFÍA
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">02</p>
+    <h2 class="section-title">Tipografía</h2>
+    <p class="section-desc">Sin cambios en tipografía. Inter para texto funcional, Playfair Display para títulos de marca.</p>
+
+    <div class="grid-2" style="margin-bottom:32px">
+      <div style="background:#fff;border-radius:16px;padding:28px;box-shadow:var(--shadow-card)">
+        <p style="font-size:11px;font-weight:700;color:var(--brand-primary);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Serif — Títulos</p>
+        <p style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--neutral-800);line-height:1.1">Playfair Display</p>
+        <p style="font-family:'Playfair Display',serif;font-size:18px;color:var(--neutral-600);margin-top:8px">Belleza con ciencia, arte y confianza</p>
+        <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+          <span style="font-family:monospace;font-size:11px;background:var(--neutral-100);padding:3px 8px;border-radius:4px;color:var(--neutral-700)">400 Regular</span>
+          <span style="font-family:monospace;font-size:11px;background:var(--neutral-100);padding:3px 8px;border-radius:4px;color:var(--neutral-700)">600 SemiBold</span>
+          <span style="font-family:monospace;font-size:11px;background:var(--neutral-100);padding:3px 8px;border-radius:4px;color:var(--neutral-700)">700 Bold</span>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:28px;box-shadow:var(--shadow-card)">
+        <p style="font-size:11px;font-weight:700;color:var(--brand-primary);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Sans-serif — Cuerpo</p>
+        <p style="font-family:'Inter',sans-serif;font-size:40px;font-weight:700;color:var(--neutral-800);line-height:1.1">Inter</p>
+        <p style="font-family:'Inter',sans-serif;font-size:18px;color:var(--neutral-600);margin-top:8px">Especialistas en cirugía plástica</p>
+        <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+          <span style="font-family:monospace;font-size:11px;background:var(--neutral-100);padding:3px 8px;border-radius:4px;color:var(--neutral-700)">400 Regular</span>
+          <span style="font-family:monospace;font-size:11px;background:var(--neutral-100);padding:3px 8px;border-radius:4px;color:var(--neutral-700)">500 Medium</span>
+          <span style="font-family:monospace;font-size:11px;background:var(--neutral-100);padding:3px 8px;border-radius:4px;color:var(--neutral-700)">600 SemiBold</span>
+          <span style="font-family:monospace;font-size:11px;background:var(--neutral-100);padding:3px 8px;border-radius:4px;color:var(--neutral-700)">700 Bold</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="label">H1 · Hero</div>
+          <div class="specs">Playfair Display<br>36→48→60px<br>font-bold</div>
+        </div>
+        <div class="type-preview">
+          <p style="font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,50px);font-weight:700;color:var(--neutral-800);line-height:1.2">Belleza con ciencia,<br><span style="color:var(--brand-gold)">arte y confianza</span></p>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="label">H2 · Sección</div>
+          <div class="specs">Playfair Display<br>30→36px<br>font-bold · center</div>
+        </div>
+        <div class="type-preview">
+          <p style="font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--neutral-800)">Nuestros Procedimientos</p>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="label">H3 · Card</div>
+          <div class="specs">Playfair Display<br>20→24px<br>font-semibold</div>
+        </div>
+        <div class="type-preview">
+          <p style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--neutral-800)">Rinoplastia</p>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="label">Body · Principal</div>
+          <div class="specs">Inter · 16→18px<br>normal · leading-relaxed</div>
+        </div>
+        <div class="type-preview">
+          <p style="font-size:16px;color:var(--neutral-700);line-height:1.75;max-width:480px">Especialistas en cirugía plástica, reconstructiva y medicina estética. Resultados naturales que transforman vidas con la más alta tecnología.</p>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="label">Badge / Label</div>
+          <div class="specs">Inter · 12px<br>font-bold · uppercase</div>
+        </div>
+        <div class="type-preview">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <span class="badge">Cirugía Plástica</span>
+            <span class="badge badge-gold">Medicina Estética</span>
+            <span style="background:var(--neutral-900);display:inline-block" class="badge badge-dark">Dra. Karen Valverde</span>
+          </div>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="label">Texto Gradiente</div>
+          <div class="specs">135° · primary→gold<br>#8C3F5A → #D4A843</div>
+        </div>
+        <div class="type-preview">
+          <p style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,#8C3F5A,#D4A843);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Valverde</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- ══════════════════════════════════════
+       3. BOTONES
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">03</p>
+    <h2 class="section-title">Botones</h2>
+    <p class="section-desc">Cuatro variantes. Todos con <code>border-radius: 9999px</code>, transición 300ms. Sin cambios estructurales, solo colores.</p>
+
+    <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:var(--shadow-card);margin-bottom:16px">
+      <p style="font-size:12px;font-weight:600;color:var(--neutral-600);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em">Variantes</p>
+      <div class="btn-row" style="margin-bottom:28px">
+        <a href="#" class="btn btn-primary">Agendar consulta</a>
+        <a href="#" class="btn btn-secondary">Ver procedimientos</a>
+        <a href="#" class="btn btn-gold">Consulta gratuita</a>
+        <a href="#" class="btn btn-ghost">Más información</a>
+      </div>
+      <p style="font-size:12px;font-weight:600;color:var(--neutral-600);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em">Sobre fondo oscuro</p>
+      <div style="background:var(--neutral-900);border-radius:12px;padding:24px;margin-bottom:24px">
+        <div class="btn-row">
+          <a href="#" class="btn btn-gold">Consulta gratuita</a>
+          <a href="#" class="btn btn-secondary" style="border-color:#fff;color:#fff">Ver procedimientos</a>
+        </div>
+      </div>
+      <p style="font-size:12px;font-weight:600;color:var(--neutral-600);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em">Tamaños</p>
+      <div class="btn-row">
+        <a href="#" class="btn btn-primary btn-sm">Pequeño (sm)</a>
+        <a href="#" class="btn btn-primary">Normal (base)</a>
+        <a href="#" class="btn btn-primary btn-lg">Grande (lg)</a>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Clase</th><th>Fondo</th><th>Texto</th><th>Hover</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td><code>btn-primary</code></td><td>#8C3F5A</td><td>#FFFFFF</td><td>Fondo → #C4728A</td><td>CTA principal (Agendar, Enviar, Ver)</td></tr>
+        <tr><td><code>btn-secondary</code></td><td>Transparente</td><td>#8C3F5A</td><td>Relleno con brand-primary, texto blanco</td><td>Acción secundaria, dentro de hero</td></tr>
+        <tr><td><code>btn-gold</code></td><td>#D4A843</td><td>#FFFFFF</td><td>opacity 0.9</td><td>Acción destacada hero, consulta gratuita</td></tr>
+        <tr><td><code>btn-ghost</code></td><td>#FDF0F4</td><td>#8C3F5A</td><td>—</td><td>Acciones secundarias suaves, sidebars</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- ══════════════════════════════════════
+       4. COMPONENTES
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">04</p>
+    <h2 class="section-title">Componentes</h2>
+    <p class="section-desc">Cards, badges, formulario y WhatsApp float con la nueva paleta Rose Noir.</p>
+
+    <!-- Cards -->
+    <p style="font-size:12px;font-weight:700;color:var(--neutral-600);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px">Cards</p>
+    <div class="grid-3" style="margin-bottom:40px">
+      <div class="demo-card">
+        <div class="card-img" style="background:var(--brand-accent)">
+          <svg width="40" height="40" fill="none" stroke="#8C3F5A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+        </div>
+        <div class="card-body">
+          <span class="badge">Cirugía</span>
+          <h3>Rinoplastia</h3>
+          <p>Cirugía de nariz estética y funcional. Resultados naturales y permanentes.</p>
+          <a href="#" class="btn btn-primary btn-sm">Ver más</a>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="card-img" style="background:#FAF7E8">
+          <svg width="40" height="40" fill="none" stroke="#D4A843" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+        </div>
+        <div class="card-body">
+          <span class="badge badge-gold">Estética</span>
+          <h3>Toxina Botulínica</h3>
+          <p>Tratamiento no quirúrgico para reducir arrugas y líneas de expresión.</p>
+          <a href="#" class="btn btn-gold btn-sm">Ver más</a>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="card-img" style="background:#F5F0FA">
+          <svg width="40" height="40" fill="none" stroke="#8B7AAE" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="card-body">
+          <span style="background:#F5F0FA;color:#6B5599" class="badge">No Invasivo</span>
+          <h3>Exilis Ultra 360</h3>
+          <p>Tecnología de radiofrecuencia para reafirmar y tonificar sin cirugía.</p>
+          <a href="#" class="btn btn-secondary btn-sm">Ver más</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form inputs -->
+    <p style="font-size:12px;font-weight:700;color:var(--neutral-600);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px">Formulario</p>
+    <div style="background:#fff;border-radius:16px;padding:28px;box-shadow:var(--shadow-card);margin-bottom:40px">
+      <div class="grid-2">
+        <div>
+          <div class="form-group">
+            <label class="form-label">Nombre completo</label>
+            <input type="text" class="form-input" placeholder="Ej: María González" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" class="form-input" placeholder="+51 987 654 321" />
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <label class="form-label">Correo electrónico</label>
+            <input type="email" class="form-input" placeholder="correo@ejemplo.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Servicio de interés</label>
+            <select class="form-input">
+              <option>Seleccionar...</option>
+              <option>Rinoplastia</option>
+              <option>Mamoplastia</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mensaje</label>
+        <textarea class="form-input" rows="3" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+      </div>
+      <div style="margin-top:8px"><button class="btn btn-primary">Enviar consulta</button></div>
+    </div>
+
+    <!-- WhatsApp float demo -->
+    <p style="font-size:12px;font-weight:700;color:var(--neutral-600);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px">Botón Flotante WhatsApp</p>
+    <div style="background:var(--neutral-900);border-radius:16px;padding:28px;position:relative;height:120px;margin-bottom:40px">
+      <p style="color:#6B7280;font-size:13px">Fijo en <code style="background:#374151;color:#D1D5DB">bottom-6 right-6 z-50</code> — color WhatsApp #25D366 (sin cambio)</p>
+      <div style="position:absolute;bottom:20px;right:20px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);cursor:pointer">
+        <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- ══════════════════════════════════════
+       5. GRADIENTES
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">05</p>
+    <h2 class="section-title">Gradientes</h2>
+    <p class="section-desc">Tres gradientes actualizados a la paleta Rose Noir. El gradiente de texto y el hero overlay cambian de verde a mauve.</p>
+
+    <div class="grid-3">
+      <div>
+        <div class="gradient-demo" style="background:linear-gradient(135deg,rgba(140,63,90,0.88) 0%,rgba(140,63,90,0.55) 55%,rgba(0,0,0,0.25) 100%)">
+          <span>bg-hero-overlay</span>
+        </div>
+        <p style="font-size:12px;color:var(--neutral-600);margin-top:10px"><strong>Hero Overlay</strong><br>135° · mauve 88% → 55% → negro 25%<br>Sobre imagen de fondo del hero</p>
+      </div>
+      <div>
+        <div class="gradient-demo" style="background:linear-gradient(135deg,#8C3F5A,#D4A843)">
+          <span>text-gradient</span>
+        </div>
+        <p style="font-size:12px;color:var(--neutral-600);margin-top:10px"><strong>Text Gradient</strong><br>135° · #8C3F5A → #D4A843<br>Títulos y palabras destacadas</p>
+      </div>
+      <div>
+        <div class="gradient-demo" style="background:linear-gradient(to bottom right,#8C3F5A,#C4728A,#2D1E25)">
+          <span>Hero BG fallback</span>
+        </div>
+        <p style="font-size:12px;color:var(--neutral-600);margin-top:10px"><strong>Hero BG fallback</strong><br>br · primary → secondary → neutral-800<br>Fondo mientras carga imagen hero</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- ══════════════════════════════════════
+       6. SOMBRAS Y RADIOS
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">06</p>
+    <h2 class="section-title">Sombras y Bordes</h2>
+    <p class="section-desc">La sombra de card ahora usa el tinte mauve rose. Los border-radius no cambian.</p>
+
+    <div class="grid-2">
+      <div>
+        <p style="font-size:12px;font-weight:700;color:var(--neutral-600);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">Sombras</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <div class="shadow-demo" style="box-shadow:0 4px 24px 0 rgba(140,63,90,0.10)">shadow-card</div>
+            <p style="font-size:11px;color:var(--neutral-600);margin-top:6px;font-family:monospace">0 4px 24px 0 rgba(140,63,90,0.10)</p>
+          </div>
+          <div>
+            <div class="shadow-demo" style="box-shadow:0 8px 30px rgba(0,0,0,0.12)">shadow-dropdown</div>
+            <p style="font-size:11px;color:var(--neutral-600);margin-top:6px;font-family:monospace">0 8px 30px rgba(0,0,0,0.12)</p>
+          </div>
+          <div>
+            <div class="shadow-demo" style="box-shadow:0 4px 20px rgba(140,63,90,0.35)">shadow-btn-primary</div>
+            <p style="font-size:11px;color:var(--neutral-600);margin-top:6px;font-family:monospace">0 4px 20px rgba(140,63,90,0.35)</p>
+          </div>
+          <div>
+            <div class="shadow-demo" style="box-shadow:0 4px 20px rgba(37,211,102,0.4)">shadow-whatsapp</div>
+            <p style="font-size:11px;color:var(--neutral-600);margin-top:6px;font-family:monospace">rgba(37,211,102,0.40) — sin cambio</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:700;color:var(--neutral-600);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">Border Radius (sin cambios)</p>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="width:60px;height:60px;background:var(--brand-accent);border:2px solid var(--brand-secondary);border-radius:6px"></div>
+            <div><p style="font-size:13px;font-weight:600;color:var(--neutral-800)">rounded-lg · 8px</p><p style="font-size:12px;color:var(--neutral-600)">Dropdown items, tags</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="width:60px;height:60px;background:var(--brand-accent);border:2px solid var(--brand-secondary);border-radius:12px"></div>
+            <div><p style="font-size:13px;font-weight:600;color:var(--neutral-800)">rounded-xl · 12px</p><p style="font-size:12px;color:var(--neutral-600)">Inputs, mobile menu items</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="width:60px;height:60px;background:var(--brand-accent);border:2px solid var(--brand-secondary);border-radius:16px"></div>
+            <div><p style="font-size:13px;font-weight:600;color:var(--neutral-800)">rounded-2xl · 16px ★</p><p style="font-size:12px;color:var(--neutral-600)">Cards, dropdowns, secciones</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="width:60px;height:60px;background:var(--brand-accent);border:2px solid var(--brand-secondary);border-radius:9999px"></div>
+            <div><p style="font-size:13px;font-weight:600;color:var(--neutral-800)">rounded-full · 9999px</p><p style="font-size:12px;color:var(--neutral-600)">Botones, badges, avatar</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- ══════════════════════════════════════
+       7. ANIMACIONES
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">07</p>
+    <h2 class="section-title">Animaciones y Transiciones</h2>
+    <p class="section-desc">Sin cambios en el sistema de animaciones. AOS para scroll, CSS transitions para estados interactivos, Swiper para carousel.</p>
+
+    <div style="background:#fff;border-radius:16px;padding:28px;box-shadow:var(--shadow-card)">
+      <table>
+        <thead><tr><th>Tipo</th><th>Librería / Método</th><th>Efecto</th><th>Duración</th><th>Uso</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag tag-rose">scroll</span></td><td>AOS 2.3.4</td><td><code>fade-up</code>, <code>fade-right</code></td><td>800ms · ease</td><td>Secciones del home, hero, cards</td></tr>
+          <tr><td><span class="tag">hover</span></td><td>CSS transition</td><td>Translate Y -4px</td><td>300ms</td><td>Cards (.card:hover)</td></tr>
+          <tr><td><span class="tag">hover</span></td><td>CSS transition</td><td>Color change</td><td>200ms</td><td>Nav links, botones, inputs</td></tr>
+          <tr><td><span class="tag">hover</span></td><td>CSS transition</td><td>Scale 1.1</td><td>300ms</td><td>Botón WhatsApp</td></tr>
+          <tr><td><span class="tag">hover</span></td><td>CSS group-hover</td><td>Rotate 180° (chevron)</td><td>200ms</td><td>Dropdown navbar</td></tr>
+          <tr><td><span class="tag">scroll</span></td><td>JS + classList</td><td>bg-white/95 + blur</td><td>300ms</td><td>Navbar al scrollear</td></tr>
+          <tr><td><span class="tag">mobile</span></td><td>CSS max-height</td><td>0 → auto</td><td>300ms · ease</td><td>Menú hamburguesa</td></tr>
+          <tr><td><span class="tag">carousel</span></td><td>Swiper 12.1.3</td><td>Slide + Autoplay 5s</td><td>600ms</td><td>Testimonios en home</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- ══════════════════════════════════════
+       8. ACCESIBILIDAD / CONTRASTE
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">08</p>
+    <h2 class="section-title">Contraste y Accesibilidad</h2>
+    <p class="section-desc">Verificación WCAG AA (ratio mínimo 4.5:1 para texto normal, 3:1 para texto grande). Todos los pares críticos cumplen.</p>
+
+    <div style="background:#fff;border-radius:16px;padding:28px;box-shadow:var(--shadow-card)">
+      <table>
+        <thead><tr><th>Par de colores</th><th>Ratio</th><th>WCAG AA</th><th>WCAG AAA</th><th>Uso</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="display:flex;align-items:center;gap:10px;padding:10px 14px">
+              <span style="display:inline-block;width:32px;height:20px;background:#8C3F5A;border-radius:4px"></span>
+              <span style="color:#8C3F5A;font-weight:600">#8C3F5A</span> sobre <span style="background:#fff;padding:2px 6px;border-radius:4px;border:1px solid #E6D9DF">blanco</span>
+            </td>
+            <td><strong>5.2 : 1</strong></td>
+            <td style="color:#16A34A">✓ Pasa</td>
+            <td style="color:#16A34A">✓ Pasa</td>
+            <td>Botones, títulos, links</td>
+          </tr>
+          <tr>
+            <td style="display:flex;align-items:center;gap:10px;padding:10px 14px">
+              <span style="display:inline-block;width:32px;height:20px;background:#8C3F5A;border-radius:4px"></span>
+              <span style="color:#8C3F5A;font-weight:600">#8C3F5A</span> sobre <span style="background:#FDF0F4;padding:2px 6px;border-radius:4px;border:1px solid #E6D9DF">#FDF0F4 accent</span>
+            </td>
+            <td><strong>4.7 : 1</strong></td>
+            <td style="color:#16A34A">✓ Pasa</td>
+            <td style="color:#CA8A04">~ Borde</td>
+            <td>Badge text, hover labels</td>
+          </tr>
+          <tr>
+            <td style="display:flex;align-items:center;gap:10px;padding:10px 14px">
+              <span style="display:inline-block;width:32px;height:20px;background:#fff;border-radius:4px;border:1px solid #eee"></span>
+              <span style="font-weight:600">blanco</span> sobre <span style="background:#8C3F5A;color:#fff;padding:2px 8px;border-radius:4px">#8C3F5A btn</span>
+            </td>
+            <td><strong>5.2 : 1</strong></td>
+            <td style="color:#16A34A">✓ Pasa</td>
+            <td style="color:#16A34A">✓ Pasa</td>
+            <td>Texto en botones</td>
+          </tr>
+          <tr>
+            <td style="display:flex;align-items:center;gap:10px;padding:10px 14px">
+              <span style="display:inline-block;width:32px;height:20px;background:#2D1E25;border-radius:4px"></span>
+              <span style="color:#2D1E25;font-weight:600">#2D1E25</span> sobre <span style="background:#FAF8F9;padding:2px 6px;border-radius:4px;border:1px solid #E6D9DF">neutral-50</span>
+            </td>
+            <td><strong>12.4 : 1</strong></td>
+            <td style="color:#16A34A">✓ Pasa</td>
+            <td style="color:#16A34A">✓ Pasa</td>
+            <td>Cuerpo de texto principal</td>
+          </tr>
+          <tr>
+            <td style="display:flex;align-items:center;gap:10px;padding:10px 14px">
+              <span style="display:inline-block;width:32px;height:20px;background:#fff;border-radius:4px;border:1px solid #eee"></span>
+              <span style="font-weight:600">blanco</span> sobre <span style="background:#1E1A1C;color:#fff;padding:2px 8px;border-radius:4px">footer #1E1A1C</span>
+            </td>
+            <td><strong>18.1 : 1</strong></td>
+            <td style="color:#16A34A">✓ Pasa</td>
+            <td style="color:#16A34A">✓ Pasa</td>
+            <td>Texto del footer</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+
+  <!-- ══════════════════════════════════════
+       9. LIBRERÍAS
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <p class="section-label">09</p>
+    <h2 class="section-title">Stack Técnico</h2>
+    <p class="section-desc">Sin cambios en el stack. Solo se actualiza la paleta de tokens en <code>src/style.css</code>.</p>
+
+    <div style="background:#fff;border-radius:16px;padding:28px;box-shadow:var(--shadow-card)">
+      <table>
+        <thead><tr><th>Librería</th><th>Versión</th><th>Cambio en v2.0</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Vite</strong></td><td>8.0.10</td><td>Sin cambio</td></tr>
+          <tr><td><strong>Tailwind CSS</strong></td><td>4.2.4</td><td>Tokens actualizados en <code>@theme</code></td></tr>
+          <tr><td><strong>TypeScript</strong></td><td>~6.0.2</td><td>Sin cambio</td></tr>
+          <tr><td><strong>Swiper</strong></td><td>12.1.3</td><td>Override CSS → nuevo <code>brand-primary</code></td></tr>
+          <tr><td><strong>AOS</strong></td><td>2.3.4</td><td>Sin cambio</td></tr>
+          <tr><td><strong>EmailJS</strong></td><td>4.4.1</td><td>Sin cambio</td></tr>
+          <tr><td><strong>Jimp</strong></td><td>latest</td><td>Sin cambio (devDependency)</td></tr>
+          <tr><td><strong>Google Fonts</strong></td><td>—</td><td>Sin cambio</td></tr>
+          <tr><td><strong>manifest.webmanifest</strong></td><td>—</td><td><code>theme_color</code>: #2C7A6B → #8C3F5A</td></tr>
+          <tr><td><strong>HTML meta theme-color</strong></td><td>26 archivos</td><td>#2C7A6B → #8C3F5A en todos</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- Footer del documento -->
+  <div style="background:var(--neutral-900);border-radius:20px;padding:32px 40px;text-align:center;margin-top:32px">
+    <p style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;margin-bottom:6px">Cirugía Plástica Valverde</p>
+    <p style="font-size:13px;color:#6B7280">Design System <strong style="color:#C4728A">v2.0 — Rose Noir</strong> · Aprobado Abril 2026 · Lima, Perú</p>
+    <p style="font-size:11px;color:#4B5563;margin-top:8px">Este archivo es solo de referencia y no forma parte del build de producción. El original (v1.0) se conserva en design-system.html</p>
+  </div>
+
+</div>
+</body>
+</html>

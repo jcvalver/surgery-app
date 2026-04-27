@@ -1,0 +1,26 @@
+[
+  {
+    "id": "depilacion-laser",
+    "nombre": "Depilación Láser",
+    "categoria": "no-invasivos",
+    "slug": "depilacion-laser",
+    "descripcionCorta": "Eliminación definitiva del vello con tecnología láser de última generación.",
+    "descripcion": "La depilación láser elimina el vello de forma permanente mediante pulsos de luz que destruyen el folículo piloso sin dañar la piel circundante. Apta para todo tipo de piel.",
+    "beneficios": ["Reducción permanente del vello", "Piel suave y sin irritación", "Apta para todas las zonas del cuerpo", "Tecnología de última generación"],
+    "sesiones": "6-8 sesiones iniciales según zona y tipo de vello. Mantenimiento anual.",
+    "imagen": "/assets/images/no_invasivos/depilacion_laser/depilacion-laser-500x500-3186563e43425b34dc350a1edae12463.jpg",
+    "icon": "⚡"
+  },
+  {
+    "id": "exilis-ultra-360",
+    "nombre": "Exilis Ultra 360",
+    "categoria": "no-invasivos",
+    "slug": "exilis-ultra-360",
+    "descripcionCorta": "Tecnología de radiofrecuencia y ultrasonido para reafirmar y rejuvenecer.",
+    "descripcion": "El Exilis Ultra 360 combina radiofrecuencia monopolar y ultrasonido enfocado para reafirmar la piel, reducir grasa localizada y estimular la producción de colágeno sin cirugía.",
+    "beneficios": ["Sin cirugía ni tiempo de recuperación", "Reafirma y tonifica la piel", "Reduce grasa localizada", "Estimula colágeno naturalmente"],
+    "sesiones": "4-6 sesiones. Resultados visibles desde la primera sesión.",
+    "imagen": "/assets/images/no_invasivos/exilis_ultra_360/conoce-el-exilis-elite-btl.jpg",
+    "icon": "🔬"
+  }
+]

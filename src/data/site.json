@@ -1,0 +1,66 @@
+{
+  "siteName": "Cirugía Plástica Valverde",
+  "tagline": "Belleza con ciencia, arte y confianza",
+  "description": "Especialistas en cirugía plástica, reconstructiva y medicina estética en Lima, Perú.",
+  "phone": "+51 987 654 321",
+  "whatsapp": "51987654321",
+  "email": "cirugiaplasticavalverde@gmail.com",
+  "sedes": [
+    {
+      "nombre": "Sede Pueblo Libre",
+      "direccion": "Calle José Morales Alpaca N°251 – Pueblo Libre",
+      "mapsUrl": "https://maps.google.com/?q=Calle+José+Morales+Alpaca+251+Pueblo+Libre+Lima"
+    },
+    {
+      "nombre": "Sede Lima Norte",
+      "direccion": "Av. Carlos Izaguirre 133 – Clínica Lima Norte, Independencia",
+      "mapsUrl": "https://maps.google.com/?q=Av+Carlos+Izaguirre+133+Independencia+Lima"
+    }
+  ],
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/cirugiaplasticavalverde",
+    "instagram": "https://www.instagram.com/cirugiaplasticavalverde",
+    "youtube": ""
+  },
+  "nav": [
+    { "label": "Inicio", "href": "/" },
+    { "label": "Dra. Karen", "href": "/pages/dra-karen.html" },
+    {
+      "label": "Cirugía Plástica",
+      "href": "/pages/cirugia-plastica.html",
+      "children": [
+        { "label": "Rinoplastia", "href": "/pages/procedimientos/rinoplastia.html" },
+        { "label": "Mamoplastia", "href": "/pages/procedimientos/mamoplastia.html" },
+        { "label": "Lipoescultura", "href": "/pages/procedimientos/lipoescultura.html" },
+        { "label": "Lipoabdominoplastia", "href": "/pages/procedimientos/lipoabdominoplastia.html" },
+        { "label": "Lipomarcación Abdominal", "href": "/pages/procedimientos/lipomarcacion-abdominal.html" },
+        { "label": "Lipotransferencia de Glúteos", "href": "/pages/procedimientos/lipotransferencia-gluteos.html" },
+        { "label": "Implante de Glúteos", "href": "/pages/procedimientos/implante-gluteos.html" },
+        { "label": "Blefaroplastia", "href": "/pages/procedimientos/blefaroplastia.html" },
+        { "label": "Otoplastia", "href": "/pages/procedimientos/otoplastia.html" },
+        { "label": "Bichectomía", "href": "/pages/procedimientos/bichectomia.html" },
+        { "label": "Afinamiento Facial", "href": "/pages/procedimientos/afinamiento-facial.html" },
+        { "label": "Ginecomastia", "href": "/pages/procedimientos/ginecomastia.html" }
+      ]
+    },
+    {
+      "label": "Medicina Estética",
+      "href": "/pages/medicina-estetica.html",
+      "children": [
+        { "label": "Plasma Rico en Plaquetas", "href": "/pages/tratamientos/plasma-rico-en-plaquetas.html" },
+        { "label": "Ácido Hialurónico", "href": "/pages/tratamientos/acido-hialuronico.html" },
+        { "label": "Vitamina C", "href": "/pages/tratamientos/vitamina-c.html" },
+        { "label": "Toxina Botulínica", "href": "/pages/tratamientos/toxina-botulinica.html" }
+      ]
+    },
+    {
+      "label": "No Invasivos",
+      "href": "/pages/no-invasivos.html",
+      "children": [
+        { "label": "Depilación Láser", "href": "/pages/tratamientos/depilacion-laser.html" },
+        { "label": "Exilis Ultra 360", "href": "/pages/tratamientos/exilis-ultra-360.html" }
+      ]
+    },
+    { "label": "Contacto", "href": "/pages/contacto.html" }
+  ]
+}
