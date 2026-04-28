@@ -28,7 +28,7 @@ if (!cirugia) {
 } else {
   document.title = `${cirugia.nombre} | Cirugía Plástica Valverde – Lima, Perú`
 
-  const waMsg = encodeURIComponent(`Hola, quiero información sobre ${cirugia.nombre}`)
+  const waMsg = encodeURIComponent('¡Hola, quisiera agendar una cita con ustedes!')
 
   app.innerHTML = `
     ${renderNavbar('/pages/cirugia-plastica.html')}

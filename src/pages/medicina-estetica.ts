@@ -67,7 +67,7 @@ const ctaHTML = `
       <p class="text-neutral-600 mb-8 max-w-lg mx-auto" data-aos="fade-up" data-aos-delay="100">
         Agenda una consulta y la Dra. Valverde diseñará un plan personalizado según tus necesidades.
       </p>
-      <a href="https://wa.me/${siteData.whatsapp}?text=Hola%2C+quiero+consultar+sobre+medicina+est%C3%A9tica"
+      <a href="https://wa.me/${siteData.whatsapp}?text=%C2%A1Hola%2C+quisiera+agendar+una+cita+con+ustedes%21"
          target="_blank" rel="noopener noreferrer"
          class="btn-primary px-8 py-4" data-aos="fade-up" data-aos-delay="200">
         Consultar por WhatsApp

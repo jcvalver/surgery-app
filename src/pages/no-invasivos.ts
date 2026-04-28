@@ -49,7 +49,7 @@ app.innerHTML = `
                   </li>
                 `).join('')}
               </ul>
-              <a href="https://wa.me/${siteData.whatsapp}?text=Quiero+información+sobre+${encodeURIComponent(t.nombre)}"
+              <a href="https://wa.me/${siteData.whatsapp}?text=%C2%A1Hola%2C+quisiera+agendar+una+cita+con+ustedes%21"
                  target="_blank" rel="noopener noreferrer"
                  class="btn-primary w-full justify-center">
                 Consultar ahora

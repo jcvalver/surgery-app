@@ -14,7 +14,7 @@ export const url = (path: string): string =>
 /**
  * Renderiza el botón flotante de WhatsApp
  */
-export function renderWhatsAppFloat(mensaje: string = '¡Hola! Quiero agendar una consulta.'): string {
+export function renderWhatsAppFloat(mensaje: string = '¡Hola, quisiera agendar una cita con ustedes!'): string {
   const url = `https://wa.me/${siteData.whatsapp}?text=${encodeURIComponent(mensaje)}`
   return `
     <a href="${url}" target="_blank" rel="noopener noreferrer"

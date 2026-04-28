@@ -54,12 +54,17 @@ app.innerHTML = `
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           ${[
-            { año: '2010', titulo: 'Médico Cirujano', inst: 'Universidad Nacional Mayor de San Marcos – Lima, Perú' },
-            { año: '2015', titulo: 'Especialización en Cirugía Plástica, Estética y Reconstructiva', inst: 'Hospital Edgardo Rebagliati Martins – Lima, Perú' },
-            { año: '2017', titulo: 'Fellowship en Cirugía de Alta Definición', inst: 'Curso Internacional – São Paulo, Brasil' },
-            { año: '2019', titulo: 'Certificación en Rejuvenecimiento Facial', inst: 'Congreso Iberoamericano de Cirugía Plástica' },
-            { año: '2021', titulo: 'Miembro activo', inst: 'Sociedad Peruana de Cirugía Plástica, Estética y Reconstructiva (SOPERCER)' },
-            { año: '2023', titulo: 'Actualización en Técnicas Mínimamente Invasivas', inst: 'Curso Internacional – Madrid, España' },
+            { año: '2014', titulo: 'Premio Tumi de Oro – Primer puesto durante los 7 años de carrera de Medicina', inst: 'Universidad Nacional de Trujillo – UNT' },
+            { año: '2015', titulo: 'Especialización en Cirugía Plástica y Reconstructiva', inst: 'Hospital E. Rebagliati – HNERM, Hospital Nacional de Referencia más Grande del País' },
+            { año: '2015', titulo: 'Primer puesto de ingreso de segunda especialización a nivel nacional', inst: 'Universidad Nacional Mayor de San Marcos – UNMSM' },
+            { año: '2018', titulo: 'Miembro de la Sociedad Americana de Cirujanos Plásticos', inst: 'ASPS – American Society of Plastic Surgeons' },
+            { año: '2018', titulo: 'Miembro de la Sociedad Internacional de Cirugía Plástica y Estética', inst: 'ISAPS – International Society of Aesthetic Plastic Surgery' },
+            { año: '2019', titulo: 'Capacitación en Rejuvenecimiento Facial', inst: 'Hospital D\'Or Niterói – a cargo del Dr. Ronaldo Pontes, Brasil' },
+            { año: '2019', titulo: 'Capacitación en Contorno Corporal', inst: 'Hospital Andaraí – a cargo del Dr. Carlos Roxo, Brasil' },
+            { año: '2020', titulo: 'Capacitación en Cirugía Estética de la Mama', inst: 'Instituto Ivo Pitanguy – Brasil' },
+            { año: '2021', titulo: 'Capacitación Internacional en Rinoplastia', inst: 'A cargo del Dr. Rod Rohrich – Dallas, EEUU' },
+            { año: '2022', titulo: 'Capacitación Internacional en Rinoplastia – Técnica Rinofast', inst: 'A cargo del Dr. Héctor Marín – México' },
+            { año: '2023', titulo: 'Capacitación en Medicina Estética', inst: 'Universidad de Buenos Aires – UBA, Argentina' },
           ].map((item, i) => `
             <div class="card p-6 flex items-start gap-4" data-aos="fade-up" data-aos-delay="${(i % 2) * 100 + 100}">
               <div class="w-14 h-14 rounded-xl bg-brand-accent flex items-center justify-center flex-shrink-0">

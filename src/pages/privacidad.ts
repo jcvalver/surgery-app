@@ -37,7 +37,7 @@ app.innerHTML = `
               <h2 class="font-serif text-2xl text-neutral-800 mb-3">1. Responsable del tratamiento</h2>
               <p>
                 <strong>Cirugía Plástica Valverde</strong>, a cargo de la Dra. Karen Valverde, con consultorios
-                en Pueblo Libre y Clínica Lima Norte, Independencia – Lima, Perú, es la entidad responsable
+                en Pueblo Libre – Lima, Perú, es la entidad responsable
                 del tratamiento de los datos personales recabados a través de este sitio web.
               </p>
               <p class="mt-2">

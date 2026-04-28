@@ -42,7 +42,7 @@ if (!tratamiento) {
 } else {
   document.title = `${tratamiento.nombre} | Cirugía Plástica Valverde – Lima, Perú`
 
-  const waMsg = encodeURIComponent(`Hola, quiero información sobre ${tratamiento.nombre}`)
+  const waMsg = encodeURIComponent('¡Hola, quisiera agendar una cita con ustedes!')
 
   app.innerHTML = `
     ${renderNavbar(categoria === 'no-invasivos' ? '/pages/no-invasivos.html' : '/pages/medicina-estetica.html')}

@@ -2,19 +2,14 @@
   "siteName": "Cirugía Plástica Valverde",
   "tagline": "Belleza con ciencia, arte y confianza",
   "description": "Especialista en cirugía plástica, reconstructiva y medicina estética en Lima, Perú.",
-  "phone": "+51 987 654 321",
-  "whatsapp": "51987654321",
+  "phone": "+51 998 471 613",
+  "whatsapp": "51998471613",
   "email": "cirugiaplasticavalverde@gmail.com",
   "sedes": [
     {
       "nombre": "Sede Pueblo Libre",
       "direccion": "Calle José Morales Alpaca N°251 – Pueblo Libre",
       "mapsUrl": "https://maps.google.com/?q=Calle+José+Morales+Alpaca+251+Pueblo+Libre+Lima"
-    },
-    {
-      "nombre": "Sede Lima Norte",
-      "direccion": "Av. Carlos Izaguirre 133 – Clínica Lima Norte, Independencia",
-      "mapsUrl": "https://maps.google.com/?q=Av+Carlos+Izaguirre+133+Independencia+Lima"
     }
   ],
   "socialMedia": {

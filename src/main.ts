@@ -295,7 +295,7 @@ const ctaHTML = `
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
         <a href="${url('/pages/contacto.html')}" class="btn-gold text-base px-8 py-4">Agendar consulta gratuita</a>
-        <a href="https://wa.me/51987654321?text=Hola%2C+quiero+agendar+una+consulta" target="_blank" rel="noopener noreferrer"
+        <a href="https://wa.me/51998471613?text=%C2%A1Hola%2C+quisiera+agendar+una+cita+con+ustedes%21" target="_blank" rel="noopener noreferrer"
            class="btn-secondary border-white text-white hover:bg-white hover:text-neutral-900 text-base px-8 py-4">
           WhatsApp directo
         </a>
