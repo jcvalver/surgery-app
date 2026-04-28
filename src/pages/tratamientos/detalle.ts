@@ -207,4 +207,21 @@ if (!tratamiento) {
 
   initNavbar()
   initAOS()
+
+  // JSON-LD MedicalTherapy
+  const ld = document.createElement('script')
+  ld.type = 'application/ld+json'
+  ld.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'MedicalTherapy',
+    name: tratamiento.nombre,
+    description: tratamiento.descripcion,
+    url: `https://jcvalver.github.io/surgery-app${window.location.pathname}`,
+    provider: {
+      '@type': 'MedicalBusiness',
+      name: 'Cirugía Plástica Valverde',
+      url: 'https://jcvalver.github.io/surgery-app/'
+    }
+  })
+  document.head.appendChild(ld)
 }

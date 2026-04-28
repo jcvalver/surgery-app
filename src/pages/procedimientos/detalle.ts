@@ -189,4 +189,23 @@ if (!cirugia) {
 
   initNavbar()
   initAOS()
+
+  // JSON-LD MedicalProcedure
+  const ld = document.createElement('script')
+  ld.type = 'application/ld+json'
+  ld.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'MedicalProcedure',
+    name: cirugia.nombre,
+    description: cirugia.descripcion,
+    url: `https://jcvalver.github.io/surgery-app${window.location.pathname}`,
+    procedureType: 'Surgical',
+    followup: cirugia.recuperacion,
+    provider: {
+      '@type': 'MedicalBusiness',
+      name: 'Cirugía Plástica Valverde',
+      url: 'https://jcvalver.github.io/surgery-app/'
+    }
+  })
+  document.head.appendChild(ld)
 }

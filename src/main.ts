@@ -33,7 +33,7 @@ const heroHTML = `
           <span class="text-brand-gold">arte y confianza</span>
         </h1>
         <p class="text-white/85 text-lg md:text-xl mb-8 leading-relaxed max-w-xl">
-          Especialistas en cirugía plástica, reconstructiva y medicina estética.
+          Especialista en cirugía plástica, reconstructiva y medicina estética.
           Resultados naturales que transforman vidas con la más alta tecnología.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">

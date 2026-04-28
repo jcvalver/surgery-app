@@ -14,7 +14,7 @@ export function renderFooter(): string {
               <img src="${img('/assets/images/icono/logo-kv-1-150x150.png')}" alt="Cirugía Plástica Valverde" class="h-20 w-auto object-contain [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.6))]" width="150" height="150" />
             </div>
             <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-              Especialistas en cirugía plástica, reconstructiva y medicina estética en Lima, Perú.
+              Especialista en cirugía plástica, reconstructiva y medicina estética en Lima, Perú.
             </p>
             <!-- Sociales -->
             <div class="flex items-center gap-3">
