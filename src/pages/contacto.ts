@@ -159,7 +159,7 @@ app.innerHTML = `
                     <p class="text-neutral-800 font-medium">${siteData.email}</p>
                   </div>
                 </a>
-                <a href="https://wa.me/${siteData.whatsapp}" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/${siteData.whatsapp}?text=%C2%A1Hola%2C+quisiera+agendar+una+cita+con+ustedes%21" target="_blank" rel="noopener noreferrer"
                    class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition-colors group">
                   <div class="w-12 h-12 rounded-xl bg-green-50 group-hover:bg-green-100 flex items-center justify-center flex-shrink-0 transition-colors">
                     <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
