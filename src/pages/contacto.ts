@@ -27,7 +27,7 @@ app.innerHTML = `
     <!-- Contenido principal -->
     <section class="py-20">
       <div class="section-container">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
 
           <!-- Formulario -->
           <div data-aos="fade-right">
@@ -145,7 +145,7 @@ app.innerHTML = `
                   </div>
                   <div>
                     <p class="text-xs text-neutral-400 font-medium uppercase tracking-wide">Teléfono</p>
-                    <p class="text-neutral-800 font-medium">${siteData.phone}</p>
+                    <p class="text-neutral-800 font-medium break-all">${siteData.phone}</p>
                   </div>
                 </a>
                 <a href="mailto:${siteData.email}" class="flex items-center gap-4 p-4 rounded-xl hover:bg-brand-accent transition-colors group">
@@ -156,7 +156,7 @@ app.innerHTML = `
                   </div>
                   <div>
                     <p class="text-xs text-neutral-400 font-medium uppercase tracking-wide">Email</p>
-                    <p class="text-neutral-800 font-medium">${siteData.email}</p>
+                    <p class="text-neutral-800 font-medium break-all">${siteData.email}</p>
                   </div>
                 </a>
                 <a href="https://wa.me/${siteData.whatsapp}?text=%C2%A1Hola%2C+quisiera+agendar+una+cita+con+ustedes%21" target="_blank" rel="noopener noreferrer"

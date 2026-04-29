@@ -22,7 +22,7 @@
 /* ─── Base ───────────────────────────────────────────────── */
 @layer base {
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  body { @apply font-sans text-neutral-800 bg-white; }
+  body { @apply font-sans text-neutral-800 bg-white overflow-x-hidden; }
   h1, h2, h3, h4 { @apply font-serif; }
   img { @apply max-w-full h-auto; }
   a { @apply transition-colors duration-200; }
@@ -98,14 +98,24 @@
   @apply shadow-md bg-white/95 backdrop-blur-sm;
 }
 
-/* ─── Mobile menu ────────────────────────────────────────── */
+/* ─── Mobile menu overflow fix ───────────────────────────── */
+#navbar {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
 #mobile-menu {
   transition: max-height 0.3s ease, opacity 0.3s ease;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 #mobile-menu.open {
-  max-height: 600px;
+  max-height: 80vh;
   opacity: 1;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
 }
+/* ─── Mobile menu ────────────────────────────────────────── */

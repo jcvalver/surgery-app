@@ -47,9 +47,9 @@ export function renderNavbar(activePage: string = ''): string {
       const children = (item as any).children as { label: string; href: string }[]
       return `
         <div class="border-b border-neutral-100 pb-2 mb-2">
-          <p class="text-xs font-semibold tracking-widest uppercase text-neutral-400 px-4 py-2">${item.label}</p>
+          <p class="text-xs font-semibold tracking-wide uppercase text-neutral-400 px-4 py-2">${item.label}</p>
           ${children.map(child => `
-            <a href="${url(child.href)}" class="block px-6 py-2 text-sm text-neutral-700 hover:text-brand-primary hover:bg-brand-accent rounded-lg transition-colors">
+            <a href="${url(child.href)}" class="block px-5 py-2 text-sm text-neutral-700 hover:text-brand-primary hover:bg-brand-accent rounded-lg transition-colors truncate">
               ${child.label}
             </a>
           `).join('')}
@@ -92,12 +92,14 @@ export function renderNavbar(activePage: string = ''): string {
             </button>
           </div>
         </nav>
+      </div>
 
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="lg:hidden bg-white rounded-2xl shadow-xl border border-neutral-100 mb-3" aria-label="Menú móvil">
-          <div class="p-4">
-            ${mobileItems}
-            <a href="${url('/pages/contacto.html')}" class="btn-primary w-full justify-center mt-4">
+      <!-- Mobile menu (fuera del section-container para garantizar ancho 100vw) -->
+      <div id="mobile-menu" class="lg:hidden bg-white shadow-xl border-t border-neutral-100" aria-label="Menú móvil" style="max-width:100vw;overflow-x:hidden;box-sizing:border-box;">
+        <div class="px-4 py-4" style="max-width:100%;overflow-x:hidden;">
+          ${mobileItems}
+          <div class="mt-3 px-2">
+            <a href="${url('/pages/contacto.html')}" class="flex items-center justify-center bg-brand-primary text-white text-sm font-semibold py-2.5 px-6 rounded-full hover:bg-brand-secondary transition-all duration-300">
               Agendar cita
             </a>
           </div>
