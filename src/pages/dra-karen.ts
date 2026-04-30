@@ -30,12 +30,12 @@ app.innerHTML = `
             <h1 class="font-serif text-4xl md:text-5xl text-neutral-800 mb-2" id="dra-titulo">Dra. Karen Valverde</h1>
             <p class="text-brand-primary font-semibold mb-1">Cirujana Plástica, Estética y Reconstructiva.</p>
             <p class="text-brand-primary font-semibold mb-6">C.M.P. 66516 - R.N.E. 36844 </p>
-            <p class="text-neutral-600 leading-relaxed mb-4">
+            <p class="text-neutral-600 leading-relaxed mb-4 text-justify">
               Con más de 10 años de experiencia dedicados a la cirugía plástica, la Dra. Karen Valverde
               es reconocida en Lima por su enfoque personalizado, técnica precisa y resultados naturales
               que priorizan siempre la seguridad y bienestar del paciente.
             </p>
-            <p class="text-neutral-600 leading-relaxed mb-6">
+            <p class="text-neutral-600 leading-relaxed mb-6 text-justify">
               Su formación incluye una especialización en el Perú y múltiples cursos internacionales en
               técnicas avanzadas de cirugía de alta definición, rejuvenecimiento facial y procedimientos
               reconstructivos, manteniéndose permanentemente actualizada con las últimas tendencias mundiales.

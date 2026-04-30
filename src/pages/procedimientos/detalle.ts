@@ -69,7 +69,7 @@ if (!cirugia) {
                 <h2 class="font-serif text-2xl md:text-3xl text-neutral-800 mb-4">
                   ¿Qué es la ${cirugia.nombre}?
                 </h2>
-                <p class="text-neutral-600 leading-relaxed text-lg">${cirugia.descripcion}</p>
+                <p class="text-neutral-600 leading-relaxed text-lg text-justify">${cirugia.descripcion}</p>
               </div>
 
               <!-- Beneficios -->

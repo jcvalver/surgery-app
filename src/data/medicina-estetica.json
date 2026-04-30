@@ -4,9 +4,17 @@
     "nombre": "Plasma Rico en Plaquetas",
     "categoria": "medicina-estetica",
     "slug": "plasma-rico-en-plaquetas",
-    "descripcionCorta": "Tratamiento regenerativo con factores de crecimiento del propio paciente.",
-    "descripcion": "El Plasma Rico en Plaquetas (PRP) utiliza los factores de crecimiento de la propia sangre del paciente para estimular la regeneración celular, mejorar la textura de la piel y tratar la caída del cabello.",
-    "beneficios": ["100% natural y biocompatible", "Estimula el colágeno", "Rejuvenecimiento facial", "Tratamiento de alopecia"],
+    "descripcionCorta": "Tratamiento regenerativo que utiliza la propia sangre del paciente para mejorar la textura, tono y firmeza de la piel.",
+    "descripcion": "El PRP utiliza la potencia de la sangre del paciente en beneficio de su propia piel para mejorar su textura y tono. Elimina los signos del envejecimiento cutáneo actuando contra el proceso de oxidación celular, y se realiza con anestesia local y mínima sedación para mayor comodidad durante el procedimiento.",
+    "beneficios": [
+      "Mejora la textura y tono de la piel",
+      "Combate los signos del envejecimiento cutáneo",
+      "Actúa contra la oxidación celular",
+      "Disminuye arrugas finas y flaccidez",
+      "Reduce imperfecciones de la piel",
+      "100% natural: usa la propia sangre del paciente",
+      "Procedimiento cómodo con anestesia local y sedación mínima"
+    ],
     "sesiones": "3-4 sesiones iniciales. Mantenimiento cada 6-12 meses.",
     "imagen": "/assets/images/medicina_estetica/plasma_rico_en_plaquetas/plasma-rico-en-plaquetas-1-e1492385442319.jpg",
     "icon": "🩸"
@@ -16,9 +24,16 @@
     "nombre": "Ácido Hialurónico",
     "categoria": "medicina-estetica",
     "slug": "acido-hialuronico",
-    "descripcionCorta": "Rellenos dérmicos para restaurar volumen y suavizar arrugas.",
-    "descripcion": "Los rellenos de ácido hialurónico restauran el volumen perdido, hidratan profundamente y suavizan arrugas y líneas de expresión de forma natural y sin cirugía.",
-    "beneficios": ["Resultados inmediatos", "Procedimiento ambulatorio rápido", "Biodegradable y reversible", "Relleno de labios, ojeras y surcos"],
+    "descripcionCorta": "Relleno dérmico que combate la pérdida de volumen, estimula el colágeno e hidrata el cutis para un resultado natural y sin cirugía.",
+    "descripcion": "El ácido hialurónico es un gran aliado para el cuidado de la piel: lucha contra la pérdida de volumen y las arrugas, estimula el colágeno y retiene el agua hidratando el cutis. Permite el aumento, perfilado y relleno de diferentes partes del rostro, especialmente los labios, así como cuello, escote y manos.",
+    "beneficios": [
+      "Combate la pérdida de volumen y las arrugas",
+      "Estimula el colágeno y retiene la hidratación",
+      "Aplicable en surco nasogeniano, código de barras, mentón y labios",
+      "También indicado en cuello, escote y manos",
+      "Aumento, perfilado y relleno de labios",
+      "Resultados inmediatos, biodegradable y reversible"
+    ],
     "sesiones": "Sesión única con retoques a los 6-18 meses según el producto.",
     "imagen": "/assets/images/medicina_estetica/acido_hialuronico/Captura-de-pantalla-2022-08-26-171818.png",
     "icon": "💉"
@@ -28,9 +43,16 @@
     "nombre": "Vitamina C Inyectable",
     "categoria": "medicina-estetica",
     "slug": "vitamina-c",
-    "descripcionCorta": "Tratamiento iluminador y antioxidante para piel más luminosa y uniforme.",
-    "descripcion": "La Vitamina C inyectable proporciona una dosis concentrada de ácido ascórbico para iluminar, unificar el tono de la piel, reducir manchas y estimular la producción de colágeno.",
-    "beneficios": ["Piel más luminosa y uniforme", "Reducción de manchas y ojeras", "Efecto antioxidante potente", "Estimula la síntesis de colágeno"],
+    "descripcionCorta": "Vitamina C inyectable para mayor energía, defensas y beneficios estéticos, con absorción del 100% frente al 5% del consumo oral.",
+    "descripcion": "La Vitamina C inyectable posee grandes beneficios tanto a nivel de salud como estético: ayuda a producir mayor energía, generar más defensas y destruir células cancerígenas, además de mejorar la piel. Al inyectarse, el cuerpo la absorbe en un 100%, a diferencia del consumo oral donde solo se retiene el 5%, logrando una acción más rápida y efectiva.",
+    "beneficios": [
+      "Absorción del 100% frente al 5% del consumo oral",
+      "Mayor producción de energía y defensas",
+      "Acción antioxidante y destrucción de células cancerígenas",
+      "Mejora visible de la piel: luminosidad y tono uniforme",
+      "Estimula la síntesis de colágeno",
+      "Acción más rápida y efectiva que los suplementos orales"
+    ],
     "sesiones": "1 sesión semanal durante 4-6 semanas. Mantenimiento mensual.",
     "imagen": "/assets/images/medicina_estetica/vitamina_c/injeccion-vitamina-XxXx80.jpg",
     "icon": "🍊"
@@ -40,9 +62,16 @@
     "nombre": "Toxina Botulínica",
     "categoria": "medicina-estetica",
     "slug": "toxina-botulinica",
-    "descripcionCorta": "Botox para suavizar arrugas de expresión y prevenir su aparición.",
-    "descripcion": "La toxina botulínica (Botox) relaja los músculos de la expresión facial para suavizar arrugas existentes y prevenir la formación de nuevas líneas, logrando una apariencia más joven y natural.",
-    "beneficios": ["Efecto inmediato en 3-7 días", "Duración de 4-6 meses", "Sin cirugía ni recuperación", "Previene nuevas arrugas"],
+    "descripcionCorta": "El mejor tratamiento médico estético para el envejecimiento facial: relaja los músculos causantes de arrugas sin necesidad de bisturí.",
+    "descripcion": "La aplicación de Toxina Botulínica (Botox) es el mejor tratamiento médico estético para el envejecimiento facial. Provoca una relajación en el músculo causante de las arrugas y líneas de expresión, logrando un rejuvenecimiento visible sin necesidad del bisturí.",
+    "beneficios": [
+      "Relajación del músculo causante de arrugas y líneas de expresión",
+      "Rejuvenecimiento facial sin cirugía ni bisturí",
+      "Efecto visible en 3-7 días",
+      "Duración de 4-6 meses por sesión",
+      "Previene la formación de nuevas arrugas",
+      "Sin tiempo de recuperación"
+    ],
     "sesiones": "Sesión única. Retoque cada 4-6 meses.",
     "imagen": "/assets/images/medicina_estetica/toxina_botulinica/botulinic_toxin1.jpg",
     "icon": "✨"

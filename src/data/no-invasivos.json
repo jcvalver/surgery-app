@@ -4,9 +4,16 @@
     "nombre": "Depilación Láser",
     "categoria": "no-invasivos",
     "slug": "depilacion-laser",
-    "descripcionCorta": "Eliminación definitiva del vello con tecnología láser de última generación.",
-    "descripcion": "La depilación láser elimina el vello de forma permanente mediante pulsos de luz que destruyen el folículo piloso sin dañar la piel circundante. Apta para todo tipo de piel.",
-    "beneficios": ["Reducción permanente del vello", "Piel suave y sin irritación", "Apta para todas las zonas del cuerpo", "Tecnología de última generación"],
+    "descripcionCorta": "Tecnología triple láser (Diodo 810nm + Alejandrita 755nm + YAG 1064nm) para todos los tonos de piel y tipos de vello.",
+    "descripcion": "Avanzada tecnología que combina el Láser de Diodo Speed 810nm (brazos, piernas, mejillas), el Láser de Alejandrita 755nm (vello claro y fino: bozo, ceja) y el Láser YAG 1064nm (vello grueso y oscuro: axilas, pubis). Se focaliza en el vello no deseado en tres niveles para ofrecer la solución de depilación más completa y efectiva disponible hoy: para todos los tonos de piel y tipos de vello.",
+    "beneficios": [
+      "Tratamiento prácticamente indoloro",
+      "Sesiones súper rápidas con registro de seguridad de primera clase",
+      "Retoma tus actividades cotidianas inmediatamente",
+      "Apta para zonas sensibles: orejas, cuello, línea del bikini",
+      "Cobertura completa: facial, axilas, brazos, piernas, bikini, glúteos, cuerpo completo y más",
+      "Eficaz para todos los tonos de piel y tipos de vello"
+    ],
     "sesiones": "6-8 sesiones iniciales según zona y tipo de vello. Mantenimiento anual.",
     "imagen": "/assets/images/no_invasivos/depilacion_laser/depilacion-laser-500x500-3186563e43425b34dc350a1edae12463.jpg",
     "icon": "⚡"
@@ -16,10 +23,18 @@
     "nombre": "Exilis Ultra 360",
     "categoria": "no-invasivos",
     "slug": "exilis-ultra-360",
-    "descripcionCorta": "Tecnología de radiofrecuencia y ultrasonido para reafirmar y rejuvenecer.",
-    "descripcion": "El Exilis Ultra 360 combina radiofrecuencia monopolar y ultrasonido enfocado para reafirmar la piel, reducir grasa localizada y estimular la producción de colágeno sin cirugía.",
-    "beneficios": ["Sin cirugía ni tiempo de recuperación", "Reafirma y tonifica la piel", "Reduce grasa localizada", "Estimula colágeno naturalmente"],
-    "sesiones": "4-6 sesiones. Resultados visibles desde la primera sesión.",
+    "descripcionCorta": "Tecnología no invasiva aprobada por la FDA para lifting facial y corporal, rejuvenecimiento vaginal y tratamiento de incontinencia urinaria.",
+    "descripcion": "El Exilis Ultra 360 combina radiofrecuencia y ultrasonido para ofrecer dos soluciones en una: rejuvenecimiento facial y corporal (ideal para exceso de grasa o piel en zonas obstinadas y signos de envejecimiento) y rejuvenecimiento vaginal (recupera el tono y sensibilidad vaginal, y trata la incontinencia urinaria leve y moderada en solo 2-3 sesiones de 8 minutos). Sin cirugía, sin dolor y sin recuperación. Dispositivo aprobado por la FDA.",
+    "beneficios": [
+      "Rejuvenecimiento facial y corporal sin cirugía",
+      "Ideal para grasa o piel obstinada en zonas específicas",
+      "Rejuvenecimiento vaginal: recupera tono y sensibilidad",
+      "Tratamiento efectivo para incontinencia urinaria leve y moderada",
+      "Solo 2-3 sesiones de 8 minutos para resultados vaginales",
+      "Sin dolor, sin ingreso, sin recuperación posterior",
+      "Dispositivo aprobado por la FDA con resultados avalados científicamente"
+    ],
+    "sesiones": "4-6 sesiones faciales/corporales. 2-3 sesiones para rejuvenecimiento vaginal.",
     "imagen": "/assets/images/no_invasivos/exilis_ultra_360/conoce-el-exilis-elite-btl.jpg",
     "icon": "🔬"
   }

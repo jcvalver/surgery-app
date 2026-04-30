@@ -85,7 +85,7 @@ if (!tratamiento) {
                 <h2 class="font-serif text-2xl md:text-3xl text-neutral-800 mb-4">
                   ¿Qué es ${tratamiento.nombre}?
                 </h2>
-                <p class="text-neutral-600 leading-relaxed text-lg">${tratamiento.descripcion}</p>
+                <p class="text-neutral-600 leading-relaxed text-lg text-justify">${tratamiento.descripcion}</p>
               </div>
 
               <!-- Beneficios -->
