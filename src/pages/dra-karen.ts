@@ -108,10 +108,10 @@ app.innerHTML = `
     <section class="py-20 bg-brand-primary text-white">
       <div class="section-container text-center">
         <h2 class="font-serif text-3xl text-white mb-4" data-aos="fade-up">
-          Agenda tu consulta con la Dra. Valverde
+          Agenda tu consulta con la Dra. Karen Valverde
         </h2>
         <p class="text-white/80 mb-8 max-w-lg mx-auto" data-aos="fade-up" data-aos-delay="100">
-          La primera consulta es gratuita. Conoce a la Dra. Valverde y resuelve todas tus dudas sin compromiso.
+          La primera consulta es gratuita. Conoce a la Dra. Karen Valverde y resuelve todas tus dudas sin compromiso.
         </p>
         <a href="${url('/pages/contacto.html')}" class="btn-gold px-8 py-4" data-aos="fade-up" data-aos-delay="200">
           Agendar consulta gratuita

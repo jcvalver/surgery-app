@@ -40,17 +40,17 @@ app.innerHTML = `
                   </label>
                   <input type="text" id="nombre" name="nombre" autocomplete="name"
                          class="form-input" placeholder="Tu nombre" required
-                         aria-required="true" />
-                  <p class="text-red-500 text-xs mt-1 hidden" id="nombre-error" role="alert">Por favor ingresa tu nombre.</p>
+                         aria-required="true" maxlength="100" />
+                  <p class="text-red-500 text-xs mt-1 hidden" id="nombre-error" role="alert">Solo letras, máximo 100 caracteres.</p>
                 </div>
                 <div>
                   <label for="telefono" class="block text-sm font-medium text-neutral-700 mb-1.5">
                     Teléfono / WhatsApp <span class="text-red-500" aria-hidden="true">*</span>
                   </label>
                   <input type="tel" id="telefono" name="telefono" autocomplete="tel"
-                         class="form-input" placeholder="+51 999 999 999" required
-                         aria-required="true" pattern="[0-9+\\s\\-]{7,15}" />
-                  <p class="text-red-500 text-xs mt-1 hidden" id="telefono-error" role="alert">Ingresa un teléfono válido.</p>
+                         class="form-input" placeholder="999 999 999" required
+                         aria-required="true" maxlength="9" inputmode="numeric" />
+                  <p class="text-red-500 text-xs mt-1 hidden" id="telefono-error" role="alert">Ingresa exactamente 9 dígitos.</p>
                 </div>
               </div>
               <div>
@@ -59,8 +59,8 @@ app.innerHTML = `
                 </label>
                 <input type="email" id="email" name="email" autocomplete="email"
                        class="form-input" placeholder="tucorreo@email.com" required
-                       aria-required="true" />
-                <p class="text-red-500 text-xs mt-1 hidden" id="email-error" role="alert">Ingresa un email válido.</p>
+                       aria-required="true" maxlength="100" />
+                <p class="text-red-500 text-xs mt-1 hidden" id="email-error" role="alert">Ingresa un email válido (máximo 100 caracteres).</p>
               </div>
               <div>
                 <label for="servicio" class="block text-sm font-medium text-neutral-700 mb-1.5">
@@ -100,8 +100,9 @@ app.innerHTML = `
                 </label>
                 <textarea id="mensaje" name="mensaje" rows="4"
                           class="form-input resize-none" placeholder="Cuéntanos cómo podemos ayudarte..." required
-                          aria-required="true"></textarea>
-                <p class="text-red-500 text-xs mt-1 hidden" id="mensaje-error" role="alert">Por favor escribe tu mensaje.</p>
+                          aria-required="true" maxlength="500"></textarea>
+                <p class="text-neutral-400 text-xs mt-1 text-right" id="mensaje-count">0 / 500</p>
+                <p class="text-red-500 text-xs mt-1 hidden" id="mensaje-error" role="alert">Escribe tu mensaje (máximo 500 caracteres).</p>
               </div>
 
               <!-- LGPD / Privacidad -->
@@ -118,7 +119,7 @@ app.innerHTML = `
               <p class="text-red-500 text-xs hidden" id="privacidad-error" role="alert">Debes aceptar la política de privacidad.</p>
 
               <button type="submit" id="submitBtn" class="btn-primary w-full justify-center py-4 text-base">
-                <span id="btnText">Enviar mensaje</span>
+                <span id="btnText">Envíame un mensaje</span>
                 <span id="btnLoading" class="hidden">Enviando...</span>
               </button>
 
@@ -226,6 +227,10 @@ function showError(fieldId: string, show: boolean): void {
   input.classList.toggle('border-red-400', show)
 }
 
+function sanitizeText(value: string): string {
+  return value.replace(/[<>"'`]/g, '').trim()
+}
+
 function validateForm(): boolean {
   let valid = true
   const nombre = (document.getElementById('nombre') as HTMLInputElement).value.trim()
@@ -234,17 +239,25 @@ function validateForm(): boolean {
   const mensaje = (document.getElementById('mensaje') as HTMLTextAreaElement).value.trim()
   const privacidad = (document.getElementById('privacidad') as HTMLInputElement).checked
 
-  showError('nombre', !nombre)
-  if (!nombre) valid = false
+  // Nombre: solo letras (incluyendo tildes y ñ), espacios, máximo 100
+  const nombreValido = nombre.length > 0 && nombre.length <= 100 && /^[a-zA-ZÀ-ÿñÑ\s]+$/.test(nombre)
+  showError('nombre', !nombreValido)
+  if (!nombreValido) valid = false
 
-  showError('telefono', !telefono || !/^[0-9+\s\-]{7,15}$/.test(telefono))
-  if (!telefono || !/^[0-9+\s\-]{7,15}$/.test(telefono)) valid = false
+  // Teléfono: exactamente 9 dígitos numéricos
+  const telefonoValido = /^\d{9}$/.test(telefono)
+  showError('telefono', !telefonoValido)
+  if (!telefonoValido) valid = false
 
-  showError('email', !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) valid = false
+  // Email: formato válido, máximo 100 caracteres
+  const emailValido = email.length > 0 && email.length <= 100 && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)
+  showError('email', !emailValido)
+  if (!emailValido) valid = false
 
-  showError('mensaje', !mensaje)
-  if (!mensaje) valid = false
+  // Mensaje: requerido, máximo 500 caracteres
+  const mensajeValido = mensaje.length > 0 && mensaje.length <= 500
+  showError('mensaje', !mensajeValido)
+  if (!mensajeValido) valid = false
 
   const privEl = document.getElementById('privacidad-error')!
   privEl.classList.toggle('hidden', privacidad)
@@ -254,6 +267,28 @@ function validateForm(): boolean {
 }
 
 emailjs.init(EMAILJS_PUBLIC_KEY)
+
+// Restricción tiempo real: nombre solo letras
+const nombreInput = document.getElementById('nombre') as HTMLInputElement
+nombreInput?.addEventListener('input', () => {
+  nombreInput.value = nombreInput.value.replace(/[^a-zA-ZÀ-ÿñÑ\s]/g, '')
+})
+
+// Restricción tiempo real: teléfono solo dígitos
+const telefonoInput = document.getElementById('telefono') as HTMLInputElement
+telefonoInput?.addEventListener('input', () => {
+  telefonoInput.value = telefonoInput.value.replace(/\D/g, '').slice(0, 9)
+})
+
+// Contador de caracteres en mensaje
+const mensajeTextarea = document.getElementById('mensaje') as HTMLTextAreaElement
+const mensajeCount = document.getElementById('mensaje-count')!
+mensajeTextarea?.addEventListener('input', () => {
+  const len = mensajeTextarea.value.length
+  mensajeCount.textContent = `${len} / 500`
+  mensajeCount.classList.toggle('text-red-500', len >= 480)
+  mensajeCount.classList.toggle('text-neutral-400', len < 480)
+})
 
 form?.addEventListener('submit', async (e) => {
   e.preventDefault()
@@ -266,11 +301,11 @@ form?.addEventListener('submit', async (e) => {
   formError.classList.add('hidden')
 
   try {
-    const nombre = (document.getElementById('nombre') as HTMLInputElement).value.trim()
-    const telefono = (document.getElementById('telefono') as HTMLInputElement).value.trim()
-    const email = (document.getElementById('email') as HTMLInputElement).value.trim()
-    const servicio = (document.getElementById('servicio') as HTMLSelectElement).value
-    const mensaje = (document.getElementById('mensaje') as HTMLTextAreaElement).value.trim()
+    const nombre = sanitizeText((document.getElementById('nombre') as HTMLInputElement).value)
+    const telefono = sanitizeText((document.getElementById('telefono') as HTMLInputElement).value)
+    const email = sanitizeText((document.getElementById('email') as HTMLInputElement).value)
+    const servicio = sanitizeText((document.getElementById('servicio') as HTMLSelectElement).value)
+    const mensaje = sanitizeText((document.getElementById('mensaje') as HTMLTextAreaElement).value)
 
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       from_name: nombre,
