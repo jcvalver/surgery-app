@@ -16,6 +16,7 @@ interface Cirugia {
   candidatos: string
   recuperacion: string
   imagen: string
+  imagen2?: string
   icon: string
 }
 
@@ -87,11 +88,24 @@ if (!cirugia) {
                 </ul>
               </div>
 
-              <!-- Imagen adicional -->
+              <!-- Galería -->
+              ${cirugia.imagen2 ? `
+              <div class="grid grid-cols-2 gap-3" data-aos="fade-up" data-aos-delay="150">
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-md ring-1 ring-neutral-100">
+                  <img src="${img(cirugia.imagen)}" alt="${cirugia.nombre} – resultado 1"
+                       class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-md ring-1 ring-neutral-100">
+                  <img src="${img(cirugia.imagen2)}" alt="${cirugia.nombre} – resultado 2"
+                       class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+                </div>
+              </div>
+              ` : `
               <div class="rounded-3xl overflow-hidden aspect-video shadow-lg" data-aos="fade-up" data-aos-delay="150">
                 <img src="${img(cirugia.imagen)}" alt="${cirugia.nombre} en Lima – Dra. Karen Valverde"
                      class="w-full h-full object-cover" loading="lazy" />
               </div>
+              `}
 
             </div>
 

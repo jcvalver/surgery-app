@@ -18,6 +18,7 @@
     "candidatos": "Personas mayores de 18 años con preocupaciones estéticas o funcionales en la nariz, incluyendo dificultades respiratorias, problemas congénitos o insatisfacción con la forma nasal.",
     "recuperacion": "7 a 14 días de reposo. Resultado definitivo a los 6-12 meses.",
     "imagen": "/assets/images/cirugia_plastica/rinoplastia/Rinoplastia.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/rinoplastia/Rinoplastia1-289x300.png",
     "icon": "👃"
   },
   {
@@ -39,6 +40,7 @@
     "candidatos": "Mujeres adultas con ptosis, atrofia o pérdida de tejido mamario producto de los años, embarazos, dietas o cambios metabólicos, así como aquellas insatisfechas con el volumen o la forma de su busto.",
     "recuperacion": "7-10 días de reposo. Actividades normales en 4-6 semanas.",
     "imagen": "/assets/images/cirugia_plastica/mamoplastia/senos.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/mamoplastia/286377733_5110316102387095_2393359554192426806_n-300x300.jpg",
     "icon": "✨"
   },
   {
@@ -59,6 +61,7 @@
     "candidatos": "Personas con peso estable y depósitos de grasa localizada resistentes a dieta y ejercicio, producidos por predisposición genética, cambios hormonales o el paso del tiempo.",
     "recuperacion": "5-7 días de reposo. Faja de compresión por 4-6 semanas.",
     "imagen": "/assets/images/cirugia_plastica/lipoescultura/liposuccion-bonome-500x500-1.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/lipoescultura/Captura-de-pantalla-2022-08-26-163516-298x300.png",
     "icon": "💪"
   },
   {
@@ -79,6 +82,7 @@
     "candidatos": "Hombres y mujeres con adiposidad localizada, exceso de piel o flacidez abdominal, incluyendo pacientes post-embarazo o tras pérdida de peso significativa.",
     "recuperacion": "10-14 días de reposo. Faja por 6-8 semanas.",
     "imagen": "/assets/images/cirugia_plastica/lipoabdominoplastia/lipoabdominoplastia1.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/lipoabdominoplastia/Captura-de-pantalla-2022-08-26-162853-295x300.png",
     "icon": "🏋️"
   },
   {
@@ -98,6 +102,7 @@
     "candidatos": "Personas con estómago plano, dieta saludable y rutina de ejercicio regular que desean mayor definición muscular abdominal.",
     "recuperacion": "5-7 días de reposo. Faja por 4-6 semanas.",
     "imagen": "/assets/images/cirugia_plastica/lipomarcacion_abdominal/corporales-500x500-1.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/lipomarcacion_abdominal/Captura-de-pantalla-2022-08-26-162954-300x300.png",
     "icon": "⚡"
   },
   {
@@ -117,6 +122,7 @@
     "candidatos": "Pacientes con suficiente grasa donante que desean aumentar el volumen y proyección de los glúteos de forma natural.",
     "recuperacion": "10-14 días de reposo. No sentarse directamente por 2-3 semanas.",
     "imagen": "/assets/images/cirugia_plastica/lipotransferencia_de_gluteos/lipotranferencia.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/lipotransferencia_de_gluteos/Captura-de-pantalla-2022-08-26-164438-300x300.png",
     "icon": "🌟"
   },
   {
@@ -137,6 +143,7 @@
     "candidatos": "Pacientes con glúteos planos o con insuficiente tejido graso disponible para una lipotransferencia.",
     "recuperacion": "2-3 semanas de reposo limitado. Recuperación total en 6-8 semanas.",
     "imagen": "/assets/images/cirugia_plastica/implate_de_gluteos/voirol-aumento-de-gluteos-1.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/implate_de_gluteos/07-300x300.png",
     "icon": "💎"
   },
   {
@@ -157,6 +164,7 @@
     "candidatos": "Personas que comienzan a notar caída de párpados, bolsas grasas o pérdida de firmeza en el contorno de los ojos, tanto por envejecimiento natural como por factores genéticos.",
     "recuperacion": "5-7 días con equimosis leve. Resultado final en 4-6 semanas.",
     "imagen": "/assets/images/cirugia_plastica/blefaroplastia/Blefaroplastia-bonome-500x500-1.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/blefaroplastia/Captura-de-pantalla-2022-08-26-161542-300x300.png",
     "icon": "👁️"
   },
   {
@@ -177,6 +185,7 @@
     "candidatos": "Niños mayores de 6 años y adultos con orejas prominentes, asimétricas o con forma que les genera incomodidad estética.",
     "recuperacion": "5-7 días con vendaje protector. Actividad normal en 2-3 semanas.",
     "imagen": "/assets/images/cirugia_plastica/otoplastia/otoplastia-bonome-500x500-1.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/otoplastia/Captura-de-pantalla-2022-08-26-165433-300x297.png",
     "icon": "👂"
   },
   {
@@ -196,6 +205,7 @@
     "candidatos": "Personas con mejillas voluminosas por predisposición genética o sobrepeso que desean un rostro más afinado y con mayor definición.",
     "recuperacion": "3-5 días de inflamación leve. Resultado definitivo en 2-3 meses.",
     "imagen": "/assets/images/cirugia_plastica/bichectomia/Bichectomia-1.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/bichectomia/Bichectomia-300x300.png",
     "icon": "😊"
   },
   {
@@ -215,6 +225,7 @@
     "candidatos": "Personas con rostro redondo o poco definido por acumulación de grasa en mejillas, papada o contorno mandibular.",
     "recuperacion": "Variable según técnicas empleadas.",
     "imagen": "/assets/images/cirugia_plastica/afinamiento_facial/afinamiento-facial-300x300.png",
+    "imagen2": "/assets/images/cirugia_plastica/afinamiento_facial/1587073588_080fe153638c3be8b5f1635cba7f7327.142150.png",
     "icon": "🌸"
   },
   {
@@ -234,6 +245,7 @@
     "candidatos": "Hombres con agrandamiento del tejido pectoral por acumulación de grasa, ya sea desde la infancia, adolescencia o vejez, que genera incomodidad estética o física.",
     "recuperacion": "5-7 días de reposo. Faja de compresión por 4 semanas.",
     "imagen": "/assets/images/cirugia_plastica/ginecomastia/iixowz1-500x500-1.jpg",
+    "imagen2": "/assets/images/cirugia_plastica/ginecomastia/Captura-de-pantalla-2022-08-26-162103-289x300.png",
     "icon": "🏃"
   }
 ]
