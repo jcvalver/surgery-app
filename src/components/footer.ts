@@ -11,7 +11,7 @@ export function renderFooter(): string {
           <!-- Brand -->
           <div class="lg:col-span-1">
             <div class="mb-4">
-              <img src="${img('/assets/images/icono/logo-kv-1-150x150.png')}" alt="Cirugía Plástica Valverde" class="h-20 w-auto object-contain [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.6))]" width="150" height="150" />
+              <img src="${img('/assets/images/icono/logo-kv-1-150x150.webp')}" alt="Cirugía Plástica Valverde" class="h-20 w-auto object-contain [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.6))]" width="150" height="150" />
             </div>
             <p class="text-neutral-400 text-sm leading-relaxed mb-6">
               Especialista en cirugía plástica, reconstructiva y medicina estética en Lima, Perú.

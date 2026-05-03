@@ -30,6 +30,7 @@ const listaHTML = `
           <article class="card overflow-hidden" data-aos="fade-up" data-aos-delay="${(i % 2) * 100 + 100}">
             <div class="aspect-video overflow-hidden bg-brand-accent">
               <img src="${img((t as any).imagen)}" alt="${t.nombre}" loading="lazy"
+                   width="800" height="450"
                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
             </div>
             <div class="p-8">

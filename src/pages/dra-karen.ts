@@ -15,8 +15,9 @@ app.innerHTML = `
           <div data-aos="fade-right">
             <div class="relative max-w-sm mx-auto lg:mx-0">
               <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-brand-primary/10">
-                <img src="${img('/assets/images/vida_mas/karen-valverde_doc.png')}"
+                <img src="${img('/assets/images/vida_mas/karen-valverde_doc.webp')}"
                      alt="Dra. Karen Valverde – Cirujana Plástica y Estética en Lima"
+                     width="600" height="800"
                      class="w-full h-full object-cover" loading="eager" />
               </div>
               <div class="absolute -bottom-4 -right-4 bg-white rounded-2xl px-6 py-4 shadow-xl" data-aos="zoom-in" data-aos-delay="400">

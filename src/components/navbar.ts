@@ -71,7 +71,7 @@ export function renderNavbar(activePage: string = ''): string {
         <nav class="flex items-center justify-between h-20 md:h-20" aria-label="Navegación principal">
           <!-- Logo -->
           <a href="${url('/')}" class="flex items-center flex-shrink-0" aria-label="Cirugía Plástica Valverde - Inicio">
-            <img src="${img('/assets/images/icono/logo-kv-1-150x150.png')}" alt="Cirugía Plástica Valverde" class="h-18 w-auto object-contain" width="150" height="150" />
+            <img src="${img('/assets/images/icono/logo-kv-1-150x150.webp')}" alt="Cirugía Plástica Valverde" class="h-18 w-auto object-contain" width="150" height="150" />
           </a>
 
           <!-- Desktop menu -->

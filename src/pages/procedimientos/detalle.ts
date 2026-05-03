@@ -38,6 +38,7 @@ if (!cirugia) {
       <!-- Hero -->
       <section class="relative h-72 md:h-[28rem] overflow-hidden" aria-labelledby="proc-titulo">
         <img src="${img(cirugia.imagen)}" alt="${cirugia.nombre}"
+             width="1200" height="700"
              class="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/90 via-brand-primary/70 to-brand-secondary/40"></div>
         <div class="relative z-10 section-container h-full flex flex-col justify-end pb-10">
@@ -93,16 +94,19 @@ if (!cirugia) {
               <div class="grid grid-cols-2 gap-3" data-aos="fade-up" data-aos-delay="150">
                 <div class="aspect-square rounded-2xl overflow-hidden shadow-md ring-1 ring-neutral-100">
                   <img src="${img(cirugia.imagen)}" alt="${cirugia.nombre} – resultado 1"
+                       width="600" height="600"
                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
                 </div>
                 <div class="aspect-square rounded-2xl overflow-hidden shadow-md ring-1 ring-neutral-100">
                   <img src="${img(cirugia.imagen2)}" alt="${cirugia.nombre} – resultado 2"
+                       width="600" height="600"
                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
                 </div>
               </div>
               ` : `
               <div class="rounded-3xl overflow-hidden aspect-video shadow-lg" data-aos="fade-up" data-aos-delay="150">
                 <img src="${img(cirugia.imagen)}" alt="${cirugia.nombre} en Lima – Dra. Karen Valverde"
+                     width="800" height="450"
                      class="w-full h-full object-cover" loading="lazy" />
               </div>
               `}

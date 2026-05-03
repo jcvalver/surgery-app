@@ -19,8 +19,8 @@ const heroHTML = `
   <section class="relative min-h-[92vh] flex items-center overflow-hidden" aria-label="Hero principal">
     <!-- Background image placeholder (reemplazar con imagen real) -->
     <div class="absolute inset-0 bg-gradient-to-br from-brand-primary via-brand-secondary to-neutral-800">
-      <img src="${img('/assets/images/home/01-1.png')}" alt=""
-           role="presentation"
+      <img src="${img('/assets/images/home/01-1.webp')}" alt=""
+           role="presentation" width="1920" height="1080"
            class="w-full h-full object-cover object-top opacity-40" loading="eager" />
     </div>
     <div class="bg-hero-overlay absolute inset-0"></div>
@@ -135,8 +135,9 @@ const draHTML = `
         <div data-aos="fade-right">
           <div class="relative">
             <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-brand-accent">
-              <img src="${img('/assets/images/vida_mas/karen-valverde_doc.png')}" alt="Dra. Karen Valverde – Cirujana Plástica"
-                   class="w-full h-full object-cover" loading="lazy" />
+              <img src="${img('/assets/images/vida_mas/karen-valverde_doc.webp')}" alt="Dra. Karen Valverde – Cirujana Plástica"
+                   width="600" height="750"
+                   class="w-full h-full object-cover" loading="eager" />
             </div>
             <!-- Floating badge -->
             <div class="absolute -bottom-6 right-2 md:-right-6 bg-white rounded-2xl p-4 shadow-xl" data-aos="zoom-in" data-aos-delay="300">
@@ -197,6 +198,7 @@ const cirugiasHTML = `
           <article class="card" data-aos="fade-up" data-aos-delay="${i * 80 + 200}">
             <div class="aspect-video overflow-hidden bg-brand-accent">
               <img src="${img(c.imagen)}" alt="${c.nombre}" loading="lazy"
+                   width="800" height="450"
                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
             </div>
             <div class="p-6">

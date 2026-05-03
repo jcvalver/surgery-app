@@ -51,6 +51,7 @@ if (!tratamiento) {
       <!-- Hero -->
       <section class="relative h-72 md:h-[28rem] overflow-hidden" aria-labelledby="trat-titulo">
         <img src="${img(tratamiento.imagen)}" alt="${tratamiento.nombre}"
+             width="1200" height="700"
              class="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/90 via-brand-primary/70 to-brand-secondary/40"></div>
         <div class="relative z-10 section-container h-full flex flex-col justify-end pb-10">
@@ -106,6 +107,7 @@ if (!tratamiento) {
               <!-- Imagen adicional -->
               <div class="rounded-3xl overflow-hidden aspect-video shadow-lg" data-aos="fade-up" data-aos-delay="150">
                 <img src="${img(tratamiento.imagen)}" alt="${tratamiento.nombre} – Clínica Valverde Lima"
+                     width="800" height="450"
                      class="w-full h-full object-cover" loading="lazy" />
               </div>
 

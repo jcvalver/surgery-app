@@ -48,6 +48,7 @@ El sitio presenta la oferta médica de la **Dra. Karen Valverde**, especialista 
 | **Swiper** | ^12.1.3 | Carrusel de testimonios |
 | **AOS** | ^2.3.4 | Animaciones scroll (Animate On Scroll) |
 | **EmailJS** | ^4.4.1 | Envío de formulario de contacto |
+| **Sharp** | ^0.34+ | Script de conversión de imágenes a WebP (devDep) |
 | **Jimp** | ^1.6.1 | Script de procesamiento de imágenes (devDep) |
 | **Google Fonts** | — | Inter + Playfair Display (cargadas via CDN) |
 
@@ -138,7 +139,8 @@ surgery-app/
 │       └── vida_mas/
 │
 ├── scripts/
-│   └── remove-bg.mjs                 # Script jimp: elimina fondo blanco de logos PNG
+│   ├── remove-bg.mjs                 # Script jimp: elimina fondo blanco de logos PNG
+│   └── convert-to-webp.mjs          # Script sharp: convierte JPG/PNG → WebP (calidad 82)
 │
 └── .github/
     └── workflows/
@@ -243,9 +245,9 @@ Footer de tres columnas sobre fondo `neutral-900` (`#1E1A1C`):
 Configuración global del sitio. Contiene:
 - Nombre, tagline, descripción.
 - Teléfono, WhatsApp (formato `51XXXXXXXXX`), email.
-- Array `sedes` con 2 sedes (Pueblo Libre e Independencia).
+- Array `sedes` con 1 sede (Pueblo Libre).
 - `socialMedia`: Facebook, Instagram, YouTube.
-- Árbol de navegación completo (`nav`), usado por `navbar.ts`.
+- Árbol de navegación completo (`nav`), usado por `navbar.ts`. Cada ítem de los dropdowns incluye un campo `orden` numérico que controla el orden de visualización en el menú.
 
 ### `src/data/cirugias.json`
 
@@ -253,22 +255,27 @@ Array de 12 objetos. Cada objeto incluye:
 
 ```json
 {
-  "slug": "rinoplastia",
+  "id": "rinoplastia",
+  "orden": 1,
   "nombre": "Rinoplastia",
+  "categoria": "cirugia-plastica",
+  "slug": "rinoplastia",
+  "descripcionCorta": "...",
   "descripcion": "...",
-  "descripcionLarga": "...",
   "beneficios": ["..."],
-  "imagenPrincipal": "/assets/images/cirugia_plastica/rinoplastia/...",
-  "imagenes": ["..."],
-  "duracion": "2-3 horas",
-  "recuperacion": "10-14 días",
-  "anestesia": "General"
+  "candidatos": "...",
+  "recuperacion": "7 a 14 días",
+  "imagen": "/assets/images/cirugia_plastica/rinoplastia/Rinoplastia.webp",
+  "imagen2": "/assets/images/cirugia_plastica/rinoplastia/Rinoplastia1-289x300.webp",
+  "icon": "👃"
 }
 ```
 
+El campo `orden` controla el orden de visualización en la página de catálogo y en las tarjetas de la home. Las páginas de listado usan `.slice().sort((a, b) => a.orden - b.orden)` antes de renderizar.
+
 ### `src/data/medicina-estetica.json` / `no-invasivos.json`
 
-Misma estructura que `cirugias.json`, para 4 y 2 tratamientos respectivamente.
+Misma estructura que `cirugias.json` (con `orden`, `imagen` en `.webp`, `sesiones` en lugar de `recuperacion`), para 4 y 2 tratamientos respectivamente.
 
 ### `src/data/testimonios.json`
 
@@ -324,6 +331,9 @@ npm run build
 # Vista previa del build de producción
 npm run preview
 # → http://localhost:4173/surgery-app/
+
+# Convertir todas las imágenes JPG/PNG a WebP (calidad 82)
+node scripts/convert-to-webp.mjs
 
 # Eliminar fondo blanco de logos PNG (devDependency jimp)
 node scripts/remove-bg.mjs
@@ -402,7 +412,7 @@ https://TU_USUARIO.github.io/surgery-app/
 
 ### Imágenes de procedimientos y tratamientos
 
-Organizadas en subcarpetas bajo `public/assets/images/`:
+Organizadas en subcarpetas bajo `public/assets/images/`. Todas las imágenes se almacenan en formato **WebP** (convertidas con `scripts/convert-to-webp.mjs`, calidad 82). Los originales JPG/PNG se conservan como respaldo.
 
 ```
 cirugia_plastica/
@@ -422,6 +432,8 @@ no_invasivos/
 home/
 vida_mas/
 ```
+
+> **Conversión WebP**: 142 imágenes convertidas. Ahorro promedio: ~90% en PNG, ~50% en JPG. Total reducido de ~16.7 MB a ~4 MB.
 
 ### Helpers de rutas (`src/utils/helpers.ts`)
 
@@ -444,10 +456,14 @@ url('/pages/contacto.html')
 | **Multi-página HTML estático** en lugar de SPA | Sin necesidad de router en cliente; mejor SEO semántico; build simple con Vite `rollupOptions.input` |
 | **Template genérico `detalle.ts`** para 12+6 páginas | Evita duplicación de código; cada HTML solo define un `data-slug`; el TS consulta el JSON y renderiza |
 | **JSON como "base de datos"** | Sin backend requerido; edición directa de contenido; resolveJsonModule en TypeScript |
+| **Campo `orden` en JSON y `site.json`** | Permite reordenar tarjetas y menús editando solo el número `orden`; el sort ocurre en runtime con `.sort((a, b) => a.orden - b.orden)` |
+| **WebP para todas las imágenes** | ~70% de reducción de peso frente a JPG/PNG originales; mejor LCP y Core Web Vitals |
+| **`loading="eager"` en imágenes hero** | Evita LCP tardío en imágenes above-the-fold; `loading="lazy"` en el resto para no penalizar carga inicial |
+| **`width` y `height` explícitos en `<img>`** | Reserva espacio en el layout antes de que cargue la imagen; elimina Cumulative Layout Shift (CLS) |
 | **EmailJS** para el formulario | Formulario funcional sin servidor; gratuito hasta 200 emails/mes |
 | **Tailwind CSS 4 via `@tailwindcss/vite`** | Plugin nativo sin configuración PostCSS separada; tokens en `@theme` en lugar de `tailwind.config.js` |
 | **`public/` para imágenes** | Las imágenes se copian tal cual a `dist/` sin hash de nombre; las rutas en los JSON permanecen estables |
-| **Jimp como devDependency** | Script único de preprocesamiento de logo; no forma parte del bundle de producción |
+| **Sharp como devDependency** | Script único de conversión WebP; no forma parte del bundle de producción |
 | **`base: '/surgery-app/'`** | Requerido por GitHub Pages al alojar en subruta; todos los assets y rutas se prefijan automáticamente |
 
 ---
