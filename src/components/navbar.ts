@@ -8,7 +8,8 @@ export function renderNavbar(activePage: string = ''): string {
     const isActive = item.href === activePage || activePage.includes(item.href.replace('/pages/', '').replace('.html', ''))
 
     if (hasDropdown(item)) {
-      const children = (item as any).children as { label: string; href: string }[]
+      const children = ((item as any).children as { orden?: number; label: string; href: string }[])
+        .slice().sort((a, b) => (a.orden ?? 999) - (b.orden ?? 999))
       return `
         <li class="relative group">
           <button class="nav-link flex items-center gap-1 ${isActive ? 'nav-link-active' : ''}"
@@ -44,7 +45,8 @@ export function renderNavbar(activePage: string = ''): string {
 
   const mobileItems = siteData.nav.map((item) => {
     if (hasDropdown(item)) {
-      const children = (item as any).children as { label: string; href: string }[]
+      const children = ((item as any).children as { orden?: number; label: string; href: string }[])
+        .slice().sort((a, b) => (a.orden ?? 999) - (b.orden ?? 999))
       return `
         <div class="border-b border-neutral-100 pb-2 mb-2">
           <p class="text-xs font-semibold tracking-wide uppercase text-neutral-400 px-4 py-2">${item.label}</p>

@@ -26,7 +26,7 @@ app.innerHTML = `
     <section class="py-20">
       <div class="section-container">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-          ${noInvasivos.map((t, i) => `
+          ${(noInvasivos as Array<any>).slice().sort((a: any, b: any) => a.orden - b.orden).map((t, i) => `
           <article class="card overflow-hidden" data-aos="fade-up" data-aos-delay="${i * 150 + 100}">
             <div class="aspect-video overflow-hidden bg-brand-accent">
               <img src="${img((t as any).imagen)}" alt="${t.nombre}" loading="lazy"
@@ -40,7 +40,7 @@ app.innerHTML = `
                 <p class="text-sm text-neutral-700">${t.sesiones}</p>
               </div>
               <ul class="space-y-2 mb-6">
-                ${t.beneficios.map(b => `
+                ${t.beneficios.map((b: string) => `
                   <li class="text-sm text-neutral-700 flex items-center gap-2">
                     <svg class="w-4 h-4 text-brand-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>

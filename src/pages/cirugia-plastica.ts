@@ -26,7 +26,7 @@ const listaHTML = `
   <section class="py-20" aria-label="Lista de procedimientos de cirugía plástica">
     <div class="section-container">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        ${(cirugias as Array<{icon:string;nombre:string;descripcionCorta:string;recuperacion:string;slug:string;imagen:string}>).map((c, i) => `
+        ${(cirugias as Array<{orden:number;icon:string;nombre:string;descripcionCorta:string;recuperacion:string;slug:string;imagen:string}>).slice().sort((a,b) => a.orden - b.orden).map((c, i) => `
           <article class="card" data-aos="fade-up" data-aos-delay="${(i % 3) * 100 + 100}">
             <div class="aspect-video overflow-hidden bg-brand-accent">
               <img src="${img(c.imagen)}" alt="${c.nombre}" loading="lazy"

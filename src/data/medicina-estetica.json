@@ -1,6 +1,7 @@
 [
   {
     "id": "plasma-rico-en-plaquetas",
+    "orden": 1,
     "nombre": "Plasma Rico en Plaquetas",
     "categoria": "medicina-estetica",
     "slug": "plasma-rico-en-plaquetas",
@@ -21,6 +22,7 @@
   },
   {
     "id": "acido-hialuronico",
+    "orden": 2,
     "nombre": "Ácido Hialurónico",
     "categoria": "medicina-estetica",
     "slug": "acido-hialuronico",
@@ -40,6 +42,7 @@
   },
   {
     "id": "vitamina-c",
+    "orden": 3,
     "nombre": "Vitamina C Inyectable",
     "categoria": "medicina-estetica",
     "slug": "vitamina-c",
@@ -59,6 +62,7 @@
   },
   {
     "id": "toxina-botulinica",
+    "orden": 4,
     "nombre": "Toxina Botulínica",
     "categoria": "medicina-estetica",
     "slug": "toxina-botulinica",

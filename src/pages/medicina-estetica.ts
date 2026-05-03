@@ -26,7 +26,7 @@ const listaHTML = `
   <section class="py-20" aria-label="Lista de tratamientos de medicina estética">
     <div class="section-container">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        ${tratamientos.map((t, i) => `
+        ${(tratamientos as Array<any>).slice().sort((a: any, b: any) => a.orden - b.orden).map((t, i) => `
           <article class="card overflow-hidden" data-aos="fade-up" data-aos-delay="${(i % 2) * 100 + 100}">
             <div class="aspect-video overflow-hidden bg-brand-accent">
               <img src="${img((t as any).imagen)}" alt="${t.nombre}" loading="lazy"
@@ -42,7 +42,7 @@ const listaHTML = `
               ${t.sesiones}
             </div>
             <ul class="space-y-1 mt-4 mb-6">
-              ${t.beneficios.map(b => `
+              ${t.beneficios.map((b: string) => `
                 <li class="text-xs text-neutral-600 flex items-center gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-brand-primary flex-shrink-0"></span>
                   ${b}

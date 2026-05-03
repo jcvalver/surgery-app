@@ -24,36 +24,36 @@
       "label": "Cirugía Plástica",
       "href": "/pages/cirugia-plastica.html",
       "children": [
-        { "label": "Rinoplastia", "href": "/pages/procedimientos/rinoplastia.html" },
-        { "label": "Mamoplastia", "href": "/pages/procedimientos/mamoplastia.html" },
-        { "label": "Lipoescultura", "href": "/pages/procedimientos/lipoescultura.html" },
-        { "label": "Lipoabdominoplastia", "href": "/pages/procedimientos/lipoabdominoplastia.html" },
-        { "label": "Lipomarcación Abdominal", "href": "/pages/procedimientos/lipomarcacion-abdominal.html" },
-        { "label": "Lipotransferencia de Glúteos", "href": "/pages/procedimientos/lipotransferencia-gluteos.html" },
-        { "label": "Implante de Glúteos", "href": "/pages/procedimientos/implante-gluteos.html" },
-        { "label": "Blefaroplastia", "href": "/pages/procedimientos/blefaroplastia.html" },
-        { "label": "Otoplastia", "href": "/pages/procedimientos/otoplastia.html" },
-        { "label": "Bichectomía", "href": "/pages/procedimientos/bichectomia.html" },
-        { "label": "Afinamiento Facial", "href": "/pages/procedimientos/afinamiento-facial.html" },
-        { "label": "Ginecomastia", "href": "/pages/procedimientos/ginecomastia.html" }
+        { "orden": 1,  "label": "Rinoplastia",               "href": "/pages/procedimientos/rinoplastia.html" },
+        { "orden": 2,  "label": "Mamoplastia",               "href": "/pages/procedimientos/mamoplastia.html" },
+        { "orden": 3,  "label": "Lipoescultura",             "href": "/pages/procedimientos/lipoescultura.html" },
+        { "orden": 4,  "label": "Lipoabdominoplastia",       "href": "/pages/procedimientos/lipoabdominoplastia.html" },
+        { "orden": 5,  "label": "Lipomarcación Abdominal",   "href": "/pages/procedimientos/lipomarcacion-abdominal.html" },
+        { "orden": 6,  "label": "Lipotransferencia de Glúteos", "href": "/pages/procedimientos/lipotransferencia-gluteos.html" },
+        { "orden": 7,  "label": "Implante de Glúteos",       "href": "/pages/procedimientos/implante-gluteos.html" },
+        { "orden": 8,  "label": "Blefaroplastia",            "href": "/pages/procedimientos/blefaroplastia.html" },
+        { "orden": 9,  "label": "Otoplastia",                "href": "/pages/procedimientos/otoplastia.html" },
+        { "orden": 10, "label": "Bichectomía",               "href": "/pages/procedimientos/bichectomia.html" },
+        { "orden": 11, "label": "Afinamiento Facial",        "href": "/pages/procedimientos/afinamiento-facial.html" },
+        { "orden": 12, "label": "Ginecomastia",              "href": "/pages/procedimientos/ginecomastia.html" }
       ]
     },
     {
       "label": "Medicina Estética",
       "href": "/pages/medicina-estetica.html",
       "children": [
-        { "label": "Plasma Rico en Plaquetas", "href": "/pages/tratamientos/plasma-rico-en-plaquetas.html" },
-        { "label": "Ácido Hialurónico", "href": "/pages/tratamientos/acido-hialuronico.html" },
-        { "label": "Vitamina C", "href": "/pages/tratamientos/vitamina-c.html" },
-        { "label": "Toxina Botulínica", "href": "/pages/tratamientos/toxina-botulinica.html" }
+        { "orden": 1, "label": "Plasma Rico en Plaquetas", "href": "/pages/tratamientos/plasma-rico-en-plaquetas.html" },
+        { "orden": 2, "label": "Ácido Hialurónico",         "href": "/pages/tratamientos/acido-hialuronico.html" },
+        { "orden": 3, "label": "Vitamina C",                "href": "/pages/tratamientos/vitamina-c.html" },
+        { "orden": 4, "label": "Toxina Botulínica",         "href": "/pages/tratamientos/toxina-botulinica.html" }
       ]
     },
     {
       "label": "No Invasivos",
       "href": "/pages/no-invasivos.html",
       "children": [
-        { "label": "Depilación Láser", "href": "/pages/tratamientos/depilacion-laser.html" },
-        { "label": "Exilis Ultra 360", "href": "/pages/tratamientos/exilis-ultra-360.html" }
+        { "orden": 1, "label": "Depilación Láser", "href": "/pages/tratamientos/depilacion-laser.html" },
+        { "orden": 2, "label": "Exilis Ultra 360",  "href": "/pages/tratamientos/exilis-ultra-360.html" }
       ]
     },
     { "label": "Contacto", "href": "/pages/contacto.html" }

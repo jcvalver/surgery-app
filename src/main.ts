@@ -69,7 +69,7 @@ const categorias = [
   {
     titulo: 'Cirugía Plástica',
     descripcion: 'Procedimientos quirúrgicos de alta precisión para transformar y armonizar tu figura.',
-    href: '/pages/cirugia-plastica.html',
+    href: url('/pages/cirugia-plastica.html'),
     icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>`,
     count: cirugias.length,
     color: 'bg-brand-accent',
@@ -78,7 +78,7 @@ const categorias = [
   {
     titulo: 'Medicina Estética',
     descripcion: 'Tratamientos no quirúrgicos para rejuvenecer y revitalizar tu piel con resultados visibles.',
-    href: '/pages/medicina-estetica.html',
+    href: url('/pages/medicina-estetica.html'),
     icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>`,
     count: medicinadata.length,
     color: 'bg-pink-50',
@@ -87,7 +87,7 @@ const categorias = [
   {
     titulo: 'Tratamientos No Invasivos',
     descripcion: 'Tecnología de última generación para modelar y rejuvenecer sin cirugía ni tiempo de recuperación.',
-    href: '/pages/no-invasivos.html',
+    href: url('/pages/no-invasivos.html'),
     icon: `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
     count: 2,
     color: 'bg-blue-50',
@@ -181,7 +181,7 @@ const draHTML = `
 `
 
 // ─── Cirugías populares ───────────────────────────────────
-const cirugiasPopulares = cirugias.slice(0, 6)
+const cirugiasPopulares = (cirugias as Array<any>).slice().sort((a: any, b: any) => a.orden - b.orden).slice(0, 6)
 const cirugiasHTML = `
   <section class="py-20 bg-neutral-50" aria-labelledby="cirugas-titulo">
     <div class="section-container">

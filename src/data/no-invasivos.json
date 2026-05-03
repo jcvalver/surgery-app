@@ -1,6 +1,7 @@
 [
   {
     "id": "depilacion-laser",
+    "orden": 1,
     "nombre": "Depilación Láser",
     "categoria": "no-invasivos",
     "slug": "depilacion-laser",
@@ -20,6 +21,7 @@
   },
   {
     "id": "exilis-ultra-360",
+    "orden": 2,
     "nombre": "Exilis Ultra 360",
     "categoria": "no-invasivos",
     "slug": "exilis-ultra-360",
