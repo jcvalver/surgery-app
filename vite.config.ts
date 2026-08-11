@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  base: '/surgery-app/',
+  base: '/',
   plugins: [
     tailwindcss(),
   ],
