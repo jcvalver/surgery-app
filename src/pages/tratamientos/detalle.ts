@@ -218,11 +218,11 @@ if (!tratamiento) {
     '@type': 'MedicalTherapy',
     name: tratamiento.nombre,
     description: tratamiento.descripcion,
-    url: `https://jcvalver.github.io/surgery-app${window.location.pathname}`,
+    url: `https://cirugiaplasticavalverde.com${window.location.pathname}`,
     provider: {
       '@type': 'MedicalBusiness',
       name: 'Cirugía Plástica Valverde',
-      url: 'https://jcvalver.github.io/surgery-app/'
+      url: 'https://cirugiaplasticavalverde.com/'
     }
   })
   document.head.appendChild(ld)

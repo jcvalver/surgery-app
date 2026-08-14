@@ -216,13 +216,13 @@ if (!cirugia) {
     '@type': 'MedicalProcedure',
     name: cirugia.nombre,
     description: cirugia.descripcion,
-    url: `https://jcvalver.github.io/surgery-app${window.location.pathname}`,
+    url: `https://cirugiaplasticavalverde.com${window.location.pathname}`,
     procedureType: 'Surgical',
     followup: cirugia.recuperacion,
     provider: {
       '@type': 'MedicalBusiness',
       name: 'Cirugía Plástica Valverde',
-      url: 'https://jcvalver.github.io/surgery-app/'
+      url: 'https://cirugiaplasticavalverde.com/'
     }
   })
   document.head.appendChild(ld)

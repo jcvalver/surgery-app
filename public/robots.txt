@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jcvalver.github.io/surgery-app/sitemap.xml
+Sitemap: https://cirugiaplasticavalverde.com/sitemap.xml
